@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lingo Sphere | My Course</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background:
+                radial-gradient(circle at 10% 10%, #f8dff0 0%, transparent 30%),
+                radial-gradient(circle at 90% 90%, #e4ddf8 0%, transparent 35%),
+                #faf7fc;
+            color: #33263b;
+            min-height: 100vh;
+        }
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar {
+            height: 78px;
+            background: rgba(67, 48, 76, 0.97);
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            box-shadow: 0 8px 25px rgba(50, 35, 60, 0.15);
+
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            color: #f5b8d5;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 17px;
+            border-radius: 10px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.12);
+            color: #ffd1e5;
+        }
+
+        .logout {
+            background: #f2aeca !important;
+            color: #43304c !important;
+            font-weight: 700;
+        }
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            width: 90%;
+            max-width: 1250px;
+            margin: 45px auto 35px;
+
+            background: linear-gradient(
+                135deg,
+                #eee5f8,
+                #f8e8f2
+            );
+
+            border: 1px solid #eadcf0;
+            border-radius: 30px;
+
+            padding: 45px 50px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            position: relative;
+            overflow: hidden;
+
+            box-shadow: 0 15px 45px rgba(75, 51, 82, 0.10);
+
+            animation: fadeUp 0.8s ease;
+        }
+
+        .hero::after {
+            content: "";
+            width: 180px;
+            height: 180px;
+
+            background: #f4b9d4;
+            opacity: 0.18;
+
+            border-radius: 50%;
+
+            position: absolute;
+            right: -60px;
+            top: -60px;
+        }
+
+        .hero-text {
+            max-width: 720px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .small-title {
+            color: #a05b81;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            font-size: 13px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-size: 43px;
+            line-height: 1.15;
+            margin-bottom: 15px;
+            color: #3e2b46;
+        }
+
+        .hero h1 span {
+            color: #7d537e;
+        }
+
+        .hero p {
+            color: #756a78;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .hero-icon {
+            width: 130px;
+            height: 130px;
+
+            border-radius: 35px;
+
+            background: rgba(255,255,255,0.65);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 65px;
+
+            box-shadow: 0 15px 35px rgba(80, 50, 90, 0.10);
+
+            transform: rotate(4deg);
+            animation: floating 3s ease-in-out infinite;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        /* =====================================================
+           COURSE HEADER
+        ===================================================== */
+
+        .section {
+            width: 90%;
+            max-width: 1250px;
+            margin: 0 auto 50px;
+        }
+
+        .section-heading {
+            margin-bottom: 25px;
+        }
+
+        .section-heading h2 {
+            color: #3e2b46;
+            font-size: 28px;
+            margin-bottom: 7px;
+        }
+
+        .section-heading p {
+            color: #817582;
+            font-size: 15px;
+        }
+
+        /* =====================================================
+           LEVEL CARDS
+        ===================================================== */
+
+        .levels {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(350px, 1fr));
+
+            gap: 25px;
+        }
+
+        .level-card {
+            background: rgba(255,255,255,0.90);
+
+            border: 1px solid #eee3f1;
+
+            border-radius: 25px;
+
+            padding: 30px;
+
+            min-height: 330px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 12px 35px rgba(62, 43, 70, 0.08);
+
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease;
+
+            animation: fadeUp 0.8s ease;
+        }
+
+        .level-card:hover {
+            transform: translateY(-9px);
+            box-shadow:
+                0 22px 45px rgba(62, 43, 70, 0.14);
+        }
+
+        .level-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 120px;
+            height: 120px;
+
+            border-radius: 50%;
+
+            right: -45px;
+            top: -45px;
+
+            opacity: 0.30;
+        }
+
+        .level1::before {
+            background: #f3b5d0;
+        }
+
+        .level2::before {
+            background: #cbbbe9;
+        }
+
+        .level3::before {
+            background: #b8dce0;
+        }
+
+        .level4::before {
+            background: #e8c3d9;
+        }
+
+        .level5::before {
+            background: #c8b7dd;
+        }
+
+        .level-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            margin-bottom: 22px;
+        }
+
+        .level-number {
+            width: 55px;
+            height: 55px;
+
+            border-radius: 16px;
+
+            background: #4b3854;
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 19px;
+            font-weight: 800;
+
+            box-shadow: 0 8px 18px rgba(60,40,70,0.15);
+        }
+
+        .difficulty {
+            font-size: 12px;
+
+            padding: 7px 12px;
+
+            border-radius: 30px;
+
+            background: #f8edf4;
+            color: #9a5579;
+
+            font-weight: 700;
+        }
+
+        .level-card h3 {
+            font-size: 23px;
+            color: #3f2d47;
+            margin-bottom: 12px;
+        }
+
+        .level-card .description {
+            color: #756c78;
+            line-height: 1.65;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+
+            margin-bottom: 25px;
+        }
+
+        .topic {
+            padding: 7px 11px;
+
+            background: #f6f0f8;
+
+            color: #685671;
+
+            border-radius: 9px;
+
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* =====================================================
+           BUTTON
+        ===================================================== */
+
+        .open-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 100%;
+
+            padding: 14px 18px;
+
+            background: #493650;
+            color: white;
+
+            border-radius: 13px;
+
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            transition: 0.3s;
+
+            box-shadow: 0 8px 18px rgba(55, 40, 65, 0.12);
+        }
+
+        .open-btn:hover {
+            background: #684b70;
+            transform: translateY(-2px);
+        }
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            text-align: center;
+
+            padding: 35px 20px;
+
+            margin-top: 20px;
+
+            background: #43304c;
+
+            color: #ddd2df;
+
+            font-size: 13px;
+        }
+
+        footer strong {
+            color: #f4b8d3;
+        }
+
+        /* =====================================================
+           ANIMATIONS
+        ===================================================== */
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        @keyframes floating {
+
+            0%, 100% {
+                transform: translateY(0) rotate(4deg);
+            }
+
+            50% {
+                transform: translateY(-10px) rotate(4deg);
+            }
+
+        }
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media(max-width: 700px) {
+
+            .navbar {
+                padding: 0 20px;
+            }
+
+            .nav-links a:not(.logout) {
+                display: none;
+            }
+
+            .hero {
+                width: 92%;
+                padding: 32px 25px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero-icon {
+                display: none;
+            }
+
+            .section {
+                width: 92%;
+            }
+
+            .levels {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         NAVBAR
+    ===================================================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Lingo <span>Sphere</span>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/dashboard">
+                Dashboard
+            </a>
+
+            <a href="/course">
+                My Course
+            </a>
+
+            <a href="/logout" class="logout">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         HERO
+    ===================================================== -->
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <div class="small-title">
+                Undergraduate English Learning
+            </div>
+
+            <h1>
+                Build Your
+                <span>Academic & Professional</span>
+                English
+            </h1>
+
+            <p>
+                A structured five-level learning journey designed
+                to strengthen advanced vocabulary, grammar,
+                reading, speaking and professional writing skills.
+            </p>
+
+        </div>
+
+        <div class="hero-icon">
+            📚
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         COURSE LEVELS
+    ===================================================== -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <h2>
+                Your Learning Path
+            </h2>
+
+            <p>
+                Progress from academic language foundations
+                to advanced professional communication.
+            </p>
+
+        </div>
+
+
+        <div class="levels">
+
+
+            <!-- =================================================
+                 LEVEL 1
+            ================================================= -->
+
+            <div class="level-card level1">
+
+                <div class="level-top">
+
+                    <div class="level-number">
+                        01
+                    </div>
+
+                    <div class="difficulty">
+                        MODERATE
+                    </div>
+
+                </div>
+
+                <h3>
+                    Academic Vocabulary
+                </h3>
+
+                <p class="description">
+                    Develop a strong academic vocabulary and learn
+                    how advanced words are used in university-level
+                    reading, writing and communication.
+                </p>
+
+                <div class="topics">
+
+                    <span class="topic">
+                        Academic Words
+                    </span>
+
+                    <span class="topic">
+                        Word Usage
+                    </span>
+
+                    <span class="topic">
+                        Context
+                    </span>
+
+                    <span class="topic">
+                        Synonyms
+                    </span>
+
+                </div>
+
+                <a href="/alphabet" class="open-btn">
+                    Start Level 1 →
+                </a>
+
+            </div>
+
+
+            <!-- =================================================
+                 LEVEL 2
+            ================================================= -->
+
+            <div class="level-card level2">
+
+                <div class="level-top">
+
+                    <div class="level-number">
+                        02
+                    </div>
+
+                    <div class="difficulty">
+                        MODERATE+
+                    </div>
+
+                </div>
+
+                <h3>
+                    Advanced Grammar
+                </h3>
+
+                <p class="description">
+                    Improve sentence accuracy and learn advanced
+                    grammatical structures required for academic
+                    and professional communication.
+                </p>
+
+                <div class="topics">
+
+                    <span class="topic">
+                        Complex Sentences
+                    </span>
+
+                    <span class="topic">
+                        Tenses
+                    </span>
+
+                    <span class="topic">
+                        Clauses
+                    </span>
+
+                    <span class="topic">
+                        Sentence Structure
+                    </span>
+
+                </div>
+
+                <a href="/vocabulary" class="open-btn">
+                    Start Level 2 →
+                </a>
+
+            </div>
+
+
+            <!-- =================================================
+                 LEVEL 3
+            ================================================= -->
+
+            <div class="level-card level3">
+
+                <div class="level-top">
+
+                    <div class="level-number">
+                        03
+                    </div>
+
+                    <div class="difficulty">
+                        ADVANCED
+                    </div>
+
+                </div>
+
+                <h3>
+                    Critical Reading
+                </h3>
+
+                <p class="description">
+                    Learn to understand complex passages, identify
+                    arguments, interpret information and develop
+                    analytical reading skills.
+                </p>
+
+                <div class="topics">
+
+                    <span class="topic">
+                        Comprehension
+                    </span>
+
+                    <span class="topic">
+                        Main Ideas
+                    </span>
+
+                    <span class="topic">
+                        Inference
+                    </span>
+
+                    <span class="topic">
+                        Analysis
+                    </span>
+
+                </div>
+
+                <a href="/reading" class="open-btn">
+                    Start Level 3 →
+                </a>
+
+            </div>
+
+
+            <!-- =================================================
+                 LEVEL 4
+            ================================================= -->
+
+            <div class="level-card level4">
+
+                <div class="level-top">
+
+                    <div class="level-number">
+                        04
+                    </div>
+
+                    <div class="difficulty">
+                        ADVANCED
+                    </div>
+
+                </div>
+
+                <h3>
+                    Professional Speaking
+                </h3>
+
+                <p class="description">
+                    Develop confidence in professional conversations,
+                    presentations, interviews and formal speaking
+                    situations.
+                </p>
+
+                <div class="topics">
+
+                    <span class="topic">
+                        Presentations
+                    </span>
+
+                    <span class="topic">
+                        Interviews
+                    </span>
+
+                    <span class="topic">
+                        Discussions
+                    </span>
+
+                    <span class="topic">
+                        Fluency
+                    </span>
+
+                </div>
+
+                <a href="/speaking" class="open-btn">
+                    Start Level 4 →
+                </a>
+
+            </div>
+
+
+            <!-- =================================================
+                 LEVEL 5
+            ================================================= -->
+
+            <div class="level-card level5">
+
+                <div class="level-top">
+
+                    <div class="level-number">
+                        05
+                    </div>
+
+                    <div class="difficulty">
+                        HIGH LEVEL
+                    </div>
+
+                </div>
+
+                <h3>
+                    Professional Writing
+                </h3>
+
+                <p class="description">
+                    Master formal and professional writing skills
+                    for academic assignments, reports, emails,
+                    applications and workplace communication.
+                </p>
+
+                <div class="topics">
+
+                    <span class="topic">
+                        Report Writing
+                    </span>
+
+                    <span class="topic">
+                        Formal Emails
+                    </span>
+
+                    <span class="topic">
+                        Academic Writing
+                    </span>
+
+                    <span class="topic">
+                        Professional Communication
+                    </span>
+
+                </div>
+
+                <a href="/writing" class="open-btn">
+                    Start Final Level →
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer>
+
+        <p>
+            <strong>Lingo Sphere</strong>
+            — Where Fun Builds an Excellence
+        </p>
+
+        <p style="margin-top:8px;">
+            Academic • Professional • Interactive English Learning
+        </p>
+
+    </footer>
+
+
+</body>
+</html>

@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lingo Sphere | Level 2 - Advanced Grammar</title>
+
+<style>
+
+:root{
+    --lavender:#eee5f5;
+    --lavender2:#e1d3e9;
+    --plum:#44334d;
+    --plum2:#604b68;
+    --pink:#f5dce6;
+    --pink2:#d69aae;
+    --cream:#fcf9fd;
+    --white:#ffffff;
+    --text:#3d3343;
+    --muted:#786e7b;
+    --border:#e9dfec;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:var(--cream);
+    color:var(--text);
+}
+
+
+/* ================= BACKGROUND ================= */
+
+.bg{
+    position:fixed;
+    z-index:-1;
+    border-radius:50%;
+    pointer-events:none;
+}
+
+.bg1{
+    width:330px;
+    height:330px;
+    background:#eee3f4;
+    top:-150px;
+    right:-100px;
+    animation:float 7s infinite ease-in-out;
+}
+
+.bg2{
+    width:270px;
+    height:270px;
+    background:#f7dfe8;
+    bottom:-120px;
+    left:-110px;
+    animation:float 8s infinite ease-in-out reverse;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(25px);
+    }
+}
+
+
+/* ================= MAIN ================= */
+
+.container{
+    width:92%;
+    max-width:1250px;
+    margin:auto;
+    padding:25px 0 70px;
+}
+
+
+/* ================= NAV ================= */
+
+.nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.back{
+    text-decoration:none;
+    color:var(--plum2);
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.back:hover{
+    color:var(--plum);
+    transform:translateX(-4px);
+}
+
+.badge{
+    background:var(--lavender);
+    color:var(--plum);
+    padding:9px 18px;
+    border-radius:30px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.6px;
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:340px;
+
+    padding:48px;
+
+    border-radius:32px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e9ddf1,
+            #f5e0e8
+        );
+
+    border:1px solid #e3d7e8;
+
+    position:relative;
+    overflow:hidden;
+
+    box-shadow:
+        0 18px 40px rgba(65,45,75,.08);
+
+    animation:appear .7s ease;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.hero::after{
+    content:"✦";
+
+    position:absolute;
+
+    right:290px;
+    bottom:50px;
+
+    font-size:28px;
+
+    color:rgba(80,55,90,.25);
+
+    animation:twinkle 3s infinite;
+}
+
+@keyframes twinkle{
+    0%,100%{
+        opacity:.3;
+        transform:scale(1);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.2);
+    }
+}
+
+.hero-content{
+    max-width:730px;
+    position:relative;
+    z-index:2;
+}
+
+.label{
+    display:inline-block;
+
+    padding:7px 14px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.6);
+
+    color:#705d77;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:.7px;
+
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:44px;
+
+    line-height:1.12;
+
+    color:var(--plum);
+
+    margin-bottom:14px;
+}
+
+.hero h1 span{
+    color:#986175;
+}
+
+.hero p{
+    font-size:15px;
+
+    line-height:1.8;
+
+    color:#716574;
+}
+
+.hero-icon{
+    position:absolute;
+
+    right:80px;
+    top:70px;
+
+    width:150px;
+    height:150px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(255,255,255,.55);
+
+    border-radius:42px;
+
+    font-size:70px;
+
+    box-shadow:
+        0 15px 30px rgba(65,45,75,.07);
+
+    animation:floatIcon 4s infinite ease-in-out;
+}
+
+@keyframes floatIcon{
+    0%,100%{
+        transform:translateY(0) rotate(-2deg);
+    }
+
+    50%{
+        transform:translateY(-10px) rotate(2deg);
+    }
+}
+
+
+/* ================= PROGRESS ================= */
+
+.progress{
+    background:white;
+
+    margin-top:20px;
+
+    padding:20px 24px;
+
+    border-radius:20px;
+
+    border:1px solid var(--border);
+
+    box-shadow:
+        0 10px 25px rgba(65,45,75,.05);
+}
+
+.progress-top{
+    display:flex;
+
+    justify-content:space-between;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+}
+
+.percent{
+    color:#9b6579;
+}
+
+.progress-bar{
+    height:9px;
+
+    background:#eee9f1;
+
+    border-radius:20px;
+
+    overflow:hidden;
+}
+
+.progress-fill{
+    width:38%;
+
+    height:100%;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #80618d,
+            #d596aa
+        );
+
+    animation:progressLoad 1.3s ease;
+}
+
+@keyframes progressLoad{
+    from{
+        width:0;
+    }
+
+    to{
+        width:38%;
+    }
+}
+
+
+/* ================= SECTION ================= */
+
+.section{
+    margin-top:42px;
+}
+
+.heading{
+    margin-bottom:20px;
+}
+
+.heading h2{
+    font-size:28px;
+    color:var(--plum);
+}
+
+.heading p{
+    color:var(--muted);
+    font-size:13px;
+    margin-top:6px;
+}
+
+
+/* ================= TOPIC CARDS ================= */
+
+.topics{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:20px;
+}
+
+.topic{
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    padding:27px;
+
+    box-shadow:
+        0 10px 25px rgba(65,45,75,.05);
+
+    transition:.3s;
+}
+
+.topic:hover{
+    transform:translateY(-7px);
+
+    box-shadow:
+        0 18px 35px rgba(65,45,75,.10);
+}
+
+.topic-icon{
+    width:56px;
+    height:56px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:var(--lavender);
+
+    border-radius:17px;
+
+    font-size:27px;
+
+    margin-bottom:16px;
+}
+
+.topic:nth-child(2) .topic-icon{
+    background:var(--pink);
+}
+
+.topic:nth-child(3) .topic-icon{
+    background:#e5deed;
+}
+
+.topic h3{
+    font-size:18px;
+    margin-bottom:8px;
+}
+
+.topic p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.7;
+}
+
+
+/* ================= GRAMMAR LESSON ================= */
+
+.lesson{
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:25px;
+
+    padding:30px;
+
+    box-shadow:
+        0 10px 25px rgba(65,45,75,.05);
+}
+
+.lesson-header{
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:22px;
+}
+
+.lesson-number{
+    width:45px;
+    height:45px;
+
+    border-radius:14px;
+
+    background:var(--plum);
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-weight:700;
+}
+
+.lesson-header h3{
+    font-size:21px;
+    color:var(--plum);
+}
+
+.rule{
+    padding:19px;
+
+    background:#faf7fc;
+
+    border-left:4px solid #9a7086;
+
+    border-radius:0 14px 14px 0;
+
+    margin-bottom:17px;
+}
+
+.rule strong{
+    color:var(--plum);
+}
+
+.example-line{
+    margin-top:10px;
+
+    color:#716574;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+.correct{
+    color:#58735e;
+    font-weight:600;
+}
+
+.incorrect{
+    color:#a36374;
+    font-weight:600;
+}
+
+
+/* ================= AUDIO ================= */
+
+.audio-btn{
+    border:none;
+
+    width:38px;
+    height:38px;
+
+    border-radius:50%;
+
+    background:var(--plum);
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    font-size:16px;
+}
+
+.audio-btn:hover{
+    transform:scale(1.08);
+
+    background:#695273;
+}
+
+.audio-line{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+}
+
+
+/* ================= TRANSFORMATION ================= */
+
+.transform{
+    display:grid;
+
+    grid-template-columns:
+        1fr 70px 1fr;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-top:18px;
+}
+
+.transform-box{
+    padding:18px;
+
+    border-radius:16px;
+
+    background:#faf7fc;
+
+    border:1px solid var(--border);
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+.transform-box h4{
+    color:var(--plum);
+
+    margin-bottom:7px;
+}
+
+.arrow{
+    width:45px;
+    height:45px;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--pink);
+
+    font-size:20px;
+}
+
+
+/* ================= PRACTICE ================= */
+
+.practice-grid{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:20px;
+}
+
+.practice-card{
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:23px;
+
+    padding:27px;
+
+    box-shadow:
+        0 10px 25px rgba(65,45,75,.05);
+}
+
+.practice-card h3{
+    color:var(--plum);
+
+    font-size:20px;
+
+    margin-bottom:8px;
+}
+
+.practice-card > p{
+    color:var(--muted);
+
+    font-size:13px;
+
+    margin-bottom:18px;
+}
+
+.question{
+    padding:17px;
+
+    background:#faf7fb;
+
+    border-radius:15px;
+
+    margin-bottom:12px;
+
+    font-size:13px;
+
+    line-height:1.6;
+}
+
+.answer{
+    display:inline-block;
+
+    min-width:90px;
+
+    border-bottom:2px solid #a7788a;
+
+    text-align:center;
+
+    color:#a7788a;
+}
+
+
+/* ================= QUIZ ================= */
+
+.quiz{
+    background:var(--plum);
+
+    color:white;
+
+    padding:31px;
+
+    border-radius:27px;
+
+    box-shadow:
+        0 18px 35px rgba(60,45,65,.12);
+}
+
+.quiz h2{
+    font-size:25px;
+
+    margin-bottom:6px;
+}
+
+.quiz-intro{
+    color:#ddd4e1;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+    margin-bottom:22px;
+}
+
+.quiz-question{
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    padding:20px;
+
+    border-radius:16px;
+
+    margin-bottom:13px;
+}
+
+.quiz-question strong{
+    font-size:13px;
+}
+
+.options{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:9px;
+
+    margin-top:14px;
+}
+
+.option{
+    padding:9px 14px;
+
+    background:white;
+
+    color:var(--plum);
+
+    border-radius:10px;
+
+    font-size:12px;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.option:hover{
+    transform:translateY(-2px);
+
+    background:var(--pink);
+}
+
+
+/* ================= NEXT ================= */
+
+.next{
+    margin-top:30px;
+
+    padding:25px;
+
+    border-radius:22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f5dfe7,
+            #e9def1
+        );
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+.next h3{
+    color:var(--plum);
+
+    font-size:18px;
+}
+
+.next p{
+    color:var(--muted);
+
+    font-size:12px;
+
+    margin-top:5px;
+}
+
+.next-btn{
+    text-decoration:none;
+
+    background:var(--plum);
+
+    color:white;
+
+    padding:13px 20px;
+
+    border-radius:11px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.next-btn:hover{
+    transform:translateY(-3px);
+
+    background:#5b4562;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+    .topics{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .practice-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero-icon{
+        right:35px;
+    }
+}
+
+@media(max-width:700px){
+
+    .hero{
+        padding:32px;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .hero-icon{
+        display:none;
+    }
+
+    .topics{
+        grid-template-columns:1fr;
+    }
+
+    .transform{
+        grid-template-columns:1fr;
+    }
+
+    .arrow{
+        transform:rotate(90deg);
+    }
+
+    .next{
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:18px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="bg bg1"></div>
+<div class="bg bg2"></div>
+
+
+<div class="container">
+
+
+<!-- ================= NAV ================= -->
+
+<div class="nav">
+
+<a href="/course" class="back">
+← Back to Learning Path
+</a>
+
+<div class="badge">
+LEVEL 02 • ADVANCED
+</div>
+
+</div>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="label">
+LINGO SPHERE • UNDERGRADUATE ENGLISH
+</div>
+
+<h1>
+Advanced Grammar
+<br>
+<span>& Sentence Structure</span>
+</h1>
+
+<p>
+Move beyond basic grammar. Learn how to construct
+complex, accurate and professional sentences for
+academic assignments, presentations, reports and
+formal communication.
+</p>
+
+</div>
+
+<div class="hero-icon">
+📝
+</div>
+
+</section>
+
+
+<!-- ================= PROGRESS ================= -->
+
+<div class="progress">
+
+<div class="progress-top">
+
+<span>
+Level 02 Progress
+</span>
+
+<span class="percent">
+38%
+</span>
+
+</div>
+
+<div class="progress-bar">
+
+<div class="progress-fill"></div>
+
+</div>
+
+</div>
+
+
+<!-- ================= WHAT YOU LEARN ================= -->
+
+<section class="section">
+
+<div class="heading">
+
+<h2>
+What You'll Master
+</h2>
+
+<p>
+Strengthen your grammar for university-level communication.
+</p>
+
+</div>
+
+
+<div class="topics">
+
+
+<div class="topic">
+
+<div class="topic-icon">
+🔗
+</div>
+
+<h3>
+Complex Sentences
+</h3>
+
+<p>
+Combine independent and dependent clauses to
+express relationships between ideas clearly.
+</p>
+
+</div>
+
+
+<div class="topic">
+
+<div class="topic-icon">
+⚖️
+</div>
+
+<h3>
+Active & Passive Voice
+</h3>
+
+<p>
+Understand when to use active and passive
+structures in academic and formal writing.
+</p>
+
+</div>
+
+
+<div class="topic">
+
+<div class="topic-icon">
+🎯
+</div>
+
+<h3>
+Precise Grammar
+</h3>
+
+<p>
+Improve accuracy in tense, agreement,
+modifiers and sentence construction.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ================= LESSON 1 ================= -->
+
+<section class="section">
+
+<div class="lesson">
+
+<div class="lesson-header">
+
+<div class="lesson-number">
+01
+</div>
+
+<h3>
+Complex Sentence Structure
+</h3>
+
+</div>
+
+
+<div class="rule">
+
+<strong>
+What is a complex sentence?
+</strong>
+
+<div class="example-line">
+A complex sentence contains one independent clause
+and at least one dependent clause.
+</div>
+
+</div>
+
+
+<div class="transform">
+
+<div class="transform-box">
+
+<h4>
+Simple Ideas
+</h4>
+
+The research was successful.
+
+<br>
+
+The researchers used a new method.
+
+</div>
+
+
+<div class="arrow">
+→
+</div>
+
+
+<div class="transform-box">
+
+<h4>
+Combined Idea
+</h4>
+
+The research was successful
+<b>because</b> the researchers used a new method.
+</div>
+
+</div>
+
+
+<div class="rule" style="margin-top:18px;">
+
+<strong>
+Common subordinating conjunctions
+</strong>
+
+<div class="example-line">
+because • although • while • since • when •
+if • unless • whereas
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ================= LESSON 2 ================= -->
+
+<section class="section">
+
+<div class="lesson">
+
+<div class="lesson-header">
+
+<div class="lesson-number">
+02
+</div>
+
+<h3>
+Active & Passive Voice
+</h3>
+
+</div>
+
+
+<div class="audio-line">
+
+<div>
+
+<strong>
+Active Voice
+</strong>
+
+<div class="example-line">
+The researcher conducted the experiment.
+</div>
+
+</div>
+
+<button
+class="audio-btn"
+onclick="speak('The researcher conducted the experiment.')">
+🔊
+</button>
+
+</div>
+
+
+<div class="transform">
+
+<div class="transform-box">
+
+<h4>
+Active
+</h4>
+
+The researcher conducted
+the experiment.
+</div>
+
+
+<div class="arrow">
+→
+</div>
+
+
+<div class="transform-box">
+
+<h4>
+Passive
+</h4>
+
+The experiment was conducted
+by the researcher.
+</div>
+
+</div>
+
+
+<div class="rule" style="margin-top:20px;">
+
+<strong>
+Academic writing tip
+</strong>
+
+<div class="example-line">
+Passive voice is often used when the action or
+result is more important than the person performing
+the action.
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= LESSON 3 ================= -->
+
+<section class="section">
+
+<div class="lesson">
+
+<div class="lesson-header">
+
+<div class="lesson-number">
+03
+</div>
+
+<h3>
+Subject–Verb Agreement
+</h3>
+
+</div>
+
+
+<div class="rule">
+
+<strong>
+Rule:
+</strong>
+
+<div class="example-line">
+
+A singular subject generally takes a singular verb,
+while a plural subject takes a plural verb.
+
+</div>
+
+</div>
+
+
+<div class="transform">
+
+<div class="transform-box">
+
+<h4>
+Correct ✓
+</h4>
+
+The student <b>works</b> on the project.
+</div>
+
+
+<div class="arrow">
+VS
+</div>
+
+
+<div class="transform-box">
+
+<h4>
+Incorrect ✕
+</h4>
+
+The student <b>work</b> on the project.
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PRACTICE ================= -->
+
+<section class="section">
+
+<div class="heading">
+
+<h2>
+Practice Zone
+</h2>
+
+<p>
+Apply the grammar rules instead of only memorizing them.
+</p>
+
+</div>
+
+
+<div class="practice-grid">
+
+
+<div class="practice-card">
+
+<h3>
+✍️ Complete the Sentence
+</h3>
+
+<p>
+Choose the correct form.
+</p>
+
+
+<div class="question">
+
+The results
+<span class="answer">______</span>
+analyzed by the researchers.
+</div>
+
+
+<div class="question">
+
+Although the experiment was difficult,
+the researchers
+<span class="answer">______</span>
+it successfully.
+</div>
+
+
+<div class="question">
+
+The student
+<span class="answer">______</span>
+completed the assignment.
+</div>
+
+</div>
+
+
+<div class="practice-card">
+
+<h3>
+🔄 Transform the Sentence
+</h3>
+
+<p>
+Change the following sentences into passive voice.
+</p>
+
+
+<div class="question">
+The researcher collected the data.
+</div>
+
+
+<div class="question">
+The team developed a new application.
+</div>
+
+
+<div class="question">
+The students completed the experiment.
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ================= QUIZ ================= -->
+
+<section class="section">
+
+<div class="quiz">
+
+<h2>
+🎯 Grammar Challenge
+</h2>
+
+<p class="quiz-intro">
+Test your understanding of advanced grammar concepts.
+</p>
+
+
+<div class="quiz-question">
+
+<strong>
+1. Which sentence is grammatically correct?
+</strong>
+
+<div class="options">
+
+<div class="option">
+The student work hard.
+</div>
+
+<div class="option">
+The student works hard.
+</div>
+
+<div class="option">
+The student working hard.
+</div>
+
+</div>
+
+</div>
+
+
+<div class="quiz-question">
+
+<strong>
+2. Choose the passive form:
+"The researcher conducted the experiment."
+</strong>
+
+<div class="options">
+
+<div class="option">
+The experiment conducted the researcher.
+</div>
+
+<div class="option">
+The experiment was conducted by the researcher.
+</div>
+
+<div class="option">
+The researcher was conducted by experiment.
+</div>
+
+</div>
+
+</div>
+
+
+<div class="quiz-question">
+
+<strong>
+3. Which word can introduce a dependent clause?
+</strong>
+
+<div class="options">
+
+<div class="option">
+Because
+</div>
+
+<div class="option">
+And
+</div>
+
+<div class="option">
+Very
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ================= NEXT ================= -->
+
+<div class="next">
+
+<div>
+
+<h3>
+Level 02 completed? ✨
+</h3>
+
+<p>
+Next: Critical Reading & Comprehension
+</p>
+
+</div>
+
+
+<a href="/reading" class="next-btn">
+Continue to Level 3 →
+</a>
+
+</div>
+
+
+</div>
+
+
+<!-- ================= AUDIO ================= -->
+
+<script>
+
+function speak(text){
+
+    if("speechSynthesis" in window){
+
+        window.speechSynthesis.cancel();
+
+        let voice =
+            new SpeechSynthesisUtterance(text);
+
+        voice.lang="en-US";
+
+        voice.rate=0.78;
+
+        voice.pitch=1;
+
+        window.speechSynthesis.speak(voice);
+
+    }else{
+
+        alert(
+            "Speech audio is not supported in this browser."
+        );
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

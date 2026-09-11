@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lingo Sphere | Certificate</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family: "Segoe UI", Arial, sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(225,185,211,.38),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 90%,
+                    rgba(205,191,230,.38),
+                    transparent 30%
+                ),
+                #faf7fc;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 35px 20px;
+        }
+
+        /* ================= PAGE ================= */
+
+        .page {
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        /* ================= TOP BAR ================= */
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 18px;
+        }
+
+        .brand {
+            font-size: 23px;
+            font-weight: 900;
+            color: #46334f;
+        }
+
+        .brand span {
+            color: #c99943;
+        }
+
+        .top-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .top-btn {
+            text-decoration: none;
+
+            padding: 10px 17px;
+
+            border-radius: 10px;
+
+            font-size: 11px;
+            font-weight: 800;
+
+            transition: .3s;
+        }
+
+        .back-btn {
+            background: #46334f;
+            color: white;
+        }
+
+        .download-btn {
+            background:
+                linear-gradient(
+                    135deg,
+                    #c99943,
+                    #e5c875
+                );
+
+            color: #49371c;
+
+            box-shadow:
+                0 6px 18px rgba(201,153,67,.20);
+        }
+
+        .top-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* ================= CERTIFICATE ================= */
+
+        .certificate {
+            position: relative;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fffdf8,
+                    #fff9fc 50%,
+                    #f9f3fb
+                );
+
+            border-radius: 8px;
+
+            padding: 65px 75px 55px;
+
+            min-height: 700px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 25px 70px rgba(67,48,76,.16);
+
+            border: 1px solid #d8c29a;
+        }
+
+        /* GOLDEN BORDERS */
+
+        .certificate::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 14px;
+
+            border: 4px solid #c99943;
+
+            pointer-events: none;
+        }
+
+        .certificate::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 25px;
+
+            border: 1px solid #e5cc8b;
+
+            pointer-events: none;
+        }
+
+        .inner {
+            position: relative;
+            z-index: 2;
+
+            text-align: center;
+        }
+
+        /* ================= DECORATIVE CIRCLES ================= */
+
+        .orb {
+            position: absolute;
+
+            border-radius: 50%;
+
+            filter: blur(1px);
+
+            opacity: .22;
+        }
+
+        .orb-one {
+            width: 210px;
+            height: 210px;
+
+            background: #dcb9d8;
+
+            top: -90px;
+            left: -75px;
+        }
+
+        .orb-two {
+            width: 180px;
+            height: 180px;
+
+            background: #d3c2e5;
+
+            bottom: -80px;
+            right: -60px;
+        }
+
+        .orb-three {
+            width: 90px;
+            height: 90px;
+
+            background: #efcf89;
+
+            top: 90px;
+            right: 100px;
+
+            opacity: .12;
+        }
+
+        /* ================= LOGO ================= */
+
+        .certificate-logo {
+            color: #6c506f;
+
+            font-size: 14px;
+
+            font-weight: 900;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 20px;
+        }
+
+        .certificate-logo span {
+            color: #c99943;
+        }
+
+        .divider {
+            width: 130px;
+            height: 2px;
+
+            margin: 0 auto 25px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #c99943,
+                    transparent
+                );
+        }
+
+        /* ================= TITLE ================= */
+
+        .small-heading {
+            color: #9a702d;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 9px;
+        }
+
+        h1 {
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 52px;
+
+            letter-spacing: 3px;
+
+            color: #403047;
+
+            margin-bottom: 4px;
+        }
+
+        .completion {
+            font-size: 12px;
+
+            letter-spacing: 5px;
+
+            color: #806f82;
+
+            font-weight: 600;
+        }
+
+        /* ================= PRESENTED ================= */
+
+        .presented {
+            margin-top: 40px;
+
+            color: #827582;
+
+            font-size: 12px;
+
+            letter-spacing: .5px;
+        }
+
+        /* ================= NAME ================= */
+
+        .student-name {
+            margin-top: 12px;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 39px;
+
+            font-style: italic;
+
+            font-weight: bold;
+
+            color: #78516f;
+
+            text-shadow:
+                0 2px 12px rgba(120,81,111,.10);
+        }
+
+        .name-line {
+            width: 430px;
+
+            max-width: 80%;
+
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #c99943,
+                    transparent
+                );
+
+            margin: 10px auto 25px;
+        }
+
+        /* ================= DESCRIPTION ================= */
+
+        .description {
+            max-width: 730px;
+
+            margin: auto;
+
+            color: #6f6572;
+
+            font-size: 12px;
+
+            line-height: 1.8;
+        }
+
+        .programme {
+            color: #55405b;
+
+            font-size: 15px;
+
+            font-weight: 800;
+
+            margin: 6px 0;
+        }
+
+        /* ================= SKILLS ================= */
+
+        .skills {
+            margin: 22px auto;
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            max-width: 800px;
+        }
+
+        .skill {
+            padding: 7px 13px;
+
+            border-radius: 30px;
+
+            background: #f5eaf5;
+
+            border: 1px solid #e1cfe2;
+
+            color: #674b6c;
+
+            font-size: 9px;
+
+            font-weight: 700;
+        }
+
+        /* ================= ACHIEVEMENT ================= */
+
+        .achievements {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 18px;
+
+            margin-top: 25px;
+        }
+
+        .achievement {
+            width: 145px;
+
+            padding: 12px;
+
+            background: rgba(255,255,255,.85);
+
+            border: 1px solid #dfcb94;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 5px 15px rgba(80,60,30,.05);
+        }
+
+        .achievement-value {
+            font-size: 17px;
+
+            font-weight: 900;
+
+            color: #67486d;
+        }
+
+        .achievement-label {
+            margin-top: 3px;
+
+            font-size: 8px;
+
+            color: #897b8b;
+
+            letter-spacing: .8px;
+        }
+
+        /* ================= BOTTOM ================= */
+
+        .bottom {
+            display: flex;
+
+            align-items: flex-end;
+
+            justify-content: space-between;
+
+            margin-top: 25px;
+
+            padding: 0 45px;
+        }
+
+        /* SIGNATURE */
+
+        .signature {
+            text-align: left;
+
+            min-width: 170px;
+        }
+
+        .signature-name {
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-style: italic;
+
+            font-size: 21px;
+
+            color: #70516f;
+
+            margin-bottom: 4px;
+        }
+
+        .signature-line {
+            width: 150px;
+
+            border-top: 1px solid #887b89;
+
+            margin-bottom: 5px;
+        }
+
+        .signature-title {
+            font-size: 8px;
+
+            color: #817483;
+
+            letter-spacing: .7px;
+        }
+
+        /* ================= SEAL ================= */
+
+        .seal {
+            width: 95px;
+            height: 95px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    #fff5c9 0%,
+                    #f3d98e 55%,
+                    #d1a54d 100%
+                );
+
+            border: 4px solid #c99943;
+
+            outline: 1px solid #ead59b;
+
+            outline-offset: 4px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: #63491f;
+
+            box-shadow:
+                0 8px 20px rgba(130,95,30,.15);
+        }
+
+        .seal-star {
+            font-size: 22px;
+
+            line-height: 20px;
+        }
+
+        .seal-main {
+            font-size: 8px;
+
+            font-weight: 900;
+
+            letter-spacing: 1px;
+        }
+
+        .seal-small {
+            font-size: 6px;
+
+            letter-spacing: .6px;
+        }
+
+        /* ================= META ================= */
+
+        .meta {
+            text-align: right;
+
+            min-width: 190px;
+
+            color: #8c7d8e;
+
+            font-size: 8px;
+
+            line-height: 1.8;
+        }
+
+        .meta strong {
+            color: #65496c;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media(max-width:800px) {
+
+            .certificate {
+                padding: 55px 30px 40px;
+            }
+
+            h1 {
+                font-size: 39px;
+            }
+
+            .student-name {
+                font-size: 30px;
+            }
+
+            .achievements {
+                flex-wrap: wrap;
+            }
+
+            .bottom {
+                padding: 0;
+                gap: 25px;
+            }
+        }
+
+        @media(max-width:600px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .topbar {
+                flex-direction: column;
+
+                gap: 12px;
+            }
+
+            .top-actions {
+                width: 100%;
+            }
+
+            .top-btn {
+                flex: 1;
+                text-align: center;
+            }
+
+            .certificate {
+                padding: 48px 25px 35px;
+            }
+
+            h1 {
+                font-size: 31px;
+                letter-spacing: 1px;
+            }
+
+            .completion {
+                font-size: 9px;
+            }
+
+            .student-name {
+                font-size: 27px;
+            }
+
+            .achievements {
+                gap: 8px;
+            }
+
+            .achievement {
+                width: 120px;
+            }
+
+            .bottom {
+                flex-direction: column;
+
+                align-items: center;
+
+                text-align: center;
+            }
+
+            .signature,
+            .meta {
+                text-align: center;
+            }
+
+            .signature-line {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        /* ================= PRINT ================= */
+
+        @media print {
+
+            body {
+                background: white;
+
+                padding: 0;
+            }
+
+            .topbar {
+                display: none;
+            }
+
+            .certificate {
+                width: 100%;
+                max-width: none;
+
+                min-height: 100vh;
+
+                border-radius: 0;
+
+                box-shadow: none;
+
+                padding: 60px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+    <!-- ================= TOP BAR ================= -->
+
+    <div class="topbar">
+
+        <div class="brand">
+            Lingo <span>Sphere</span>
+        </div>
+
+        <div class="top-actions">
+
+            <a
+                href="/dashboard"
+                class="top-btn back-btn">
+
+                ← Dashboard
+
+            </a>
+
+            <a
+                href="/download_certificate"
+                class="top-btn download-btn">
+
+                ⬇ Download PDF
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= CERTIFICATE ================= -->
+
+    <div class="certificate">
+
+
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+        <div class="orb orb-three"></div>
+
+
+        <div class="inner">
+
+
+            <!-- LOGO -->
+
+            <div class="certificate-logo">
+
+                LINGO <span>SPHERE</span>
+
+            </div>
+
+
+            <div class="divider"></div>
+
+
+            <!-- TITLE -->
+
+            <div class="small-heading">
+                OFFICIAL RECOGNITION
+            </div>
+
+            <h1>
+                CERTIFICATE
+            </h1>
+
+            <div class="completion">
+                OF COMPLETION
+            </div>
+
+
+            <!-- PRESENTED -->
+
+            <div class="presented">
+
+                This certificate is proudly presented to
+
+            </div>
+
+
+            <!-- STUDENT -->
+
+            <div class="student-name">
+
+                {{ student_name }}
+
+            </div>
+
+            <div class="name-line"></div>
+
+
+            <!-- DESCRIPTION -->
+
+            <div class="description">
+
+                For successfully completing the
+
+                <div class="programme">
+                    Advanced English Learning Programme
+                </div>
+
+                offered by <strong>Lingo Sphere</strong>,
+                demonstrating knowledge and competency
+                across the following areas:
+
+            </div>
+
+
+            <!-- SKILLS -->
+
+            <div class="skills">
+
+                <span class="skill">
+                    Academic Vocabulary
+                </span>
+
+                <span class="skill">
+                    Advanced Grammar
+                </span>
+
+                <span class="skill">
+                    Critical Reading
+                </span>
+
+                <span class="skill">
+                    Professional Speaking
+                </span>
+
+                <span class="skill">
+                    Professional Writing
+                </span>
+
+            </div>
+
+
+            <!-- ACHIEVEMENTS -->
+
+            <div class="achievements">
+
+
+                <div class="achievement">
+
+                    <div class="achievement-value">
+                        {{ score }}/{{ total }}
+                    </div>
+
+                    <div class="achievement-label">
+                        ASSESSMENT SCORE
+                    </div>
+
+                </div>
+
+
+                <div class="achievement">
+
+                    <div class="achievement-value">
+                        {{ "%.0f"|format(percentage) }}%
+                    </div>
+
+                    <div class="achievement-label">
+                        FINAL RESULT
+                    </div>
+
+                </div>
+
+
+                <div class="achievement">
+
+                    <div class="achievement-value">
+                        ADVANCED
+                    </div>
+
+                    <div class="achievement-label">
+                        ACHIEVEMENT LEVEL
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- BOTTOM -->
+
+            <div class="bottom">
+
+
+                <!-- SIGNATURE -->
+
+                <div class="signature">
+
+                    <div class="signature-name">
+                        Lingo Sphere
+                    </div>
+
+                    <div class="signature-line"></div>
+
+                    <div class="signature-title">
+                        PROGRAMME AUTHORITY
+                    </div>
+
+                </div>
+
+
+                <!-- GOLD SEAL -->
+
+                <div class="seal">
+
+                    <div class="seal-star">
+                        ★
+                    </div>
+
+                    <div class="seal-main">
+                        VERIFIED
+                    </div>
+
+                    <div class="seal-small">
+                        LINGO SPHERE
+                    </div>
+
+                </div>
+
+
+                <!-- META -->
+
+                <div class="meta">
+
+                    <div>
+                        <strong>Certificate ID:</strong>
+                        LS-{{ student_name|upper|replace(" ","") }}-2026
+                    </div>
+
+                    <div>
+                        <strong>Issued:</strong>
+                        {{ current_date if current_date else "" }}
+                    </div>
+
+                    <div>
+                        Official Certificate of Completion
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #eef2ff, #ffffff);
+    color: #222;
+    min-height: 100vh;
+}
+
+/* Navigation */
+header {
+    width: 100%;
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #5b4bdb;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+/* Hero Section */
+main {
+    min-height: 80vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 8%;
+    gap: 50px;
+}
+
+.hero-text {
+    max-width: 600px;
+}
+
+.hero-text h1 {
+    font-size: 58px;
+    line-height: 1.1;
+    margin-bottom: 18px;
+    color: #2d2a55;
+}
+
+.hero-text h1 span {
+    color: #5b4bdb;
+}
+
+.tagline {
+    font-size: 21px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+button {
+    padding: 13px 28px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: 0.3s;
+}
+
+.login-btn {
+    background: #5b4bdb;
+    color: white;
+}
+
+.register-btn {
+    background: white;
+    color: #5b4bdb;
+    border: 2px solid #5b4bdb;
+}
+
+button:hover {
+    transform: translateY(-3px);
+}
+
+/* Hero Card */
+.hero-card {
+    width: 380px;
+    padding: 40px;
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(70, 60, 150, 0.15);
+    text-align: center;
+}
+
+.hero-card h2 {
+    color: #5b4bdb;
+    margin-bottom: 20px;
+}
+
+.level {
+    padding: 14px;
+    margin: 10px 0;
+    border-radius: 10px;
+    background: #f2f0ff;
+    text-align: left;
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+    main {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 42px;
+    }
+
+    .hero-card {
+        width: 100%;
+    }
+}
+/* Register Page */
+
+form {
+    margin-top: 25px;
+}
+
+form input {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    margin: 12px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+}
+
+form input:focus {
+    border-color: #5b4bdb;
+}
+
+form button {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.hero-card p {
+    color: #666;
+    margin-bottom: 10px;
+}

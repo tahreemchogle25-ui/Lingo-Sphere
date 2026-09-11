@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Lingo Sphere</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Poppins", sans-serif;
+            background: #f8f6fc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            overflow: hidden;
+            color: #66588f;
+        }
+
+        /* ================= BACKGROUND ================= */
+
+        .shape {
+            position: fixed;
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .shape-pink {
+            width: 360px;
+            height: 360px;
+            background: #f6a6a6;
+            opacity: .45;
+            top: -150px;
+            left: -120px;
+        }
+
+        .shape-blue {
+            width: 330px;
+            height: 330px;
+            background: #b8dff2;
+            opacity: .55;
+            bottom: -140px;
+            right: -100px;
+        }
+
+        .shape-small {
+            width: 100px;
+            height: 100px;
+            background: #f6a6a6;
+            opacity: .25;
+            right: 13%;
+            top: 8%;
+        }
+
+        /* ================= MAIN CONTAINER ================= */
+
+        .login-container {
+            width: 100%;
+            max-width: 950px;
+            min-height: 590px;
+
+            display: grid;
+            grid-template-columns: 44% 56%;
+
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+
+            position: relative;
+            z-index: 2;
+
+            box-shadow: 0 25px 70px rgba(102, 88, 143, .18);
+
+            animation: pageIn .7s ease;
+        }
+
+        /* ================= LEFT PANEL ================= */
+
+        .left-panel {
+            background: #66588f;
+            color: white;
+            padding: 45px;
+
+            position: relative;
+            overflow: hidden;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .left-panel::before {
+            content: "";
+            position: absolute;
+
+            width: 280px;
+            height: 280px;
+
+            border-radius: 50%;
+
+            background: #f6a6a6;
+            opacity: .20;
+
+            right: -120px;
+            top: -100px;
+        }
+
+        .left-panel::after {
+            content: "";
+            position: absolute;
+
+            width: 230px;
+            height: 230px;
+
+            border-radius: 50%;
+
+            background: #b8dff2;
+            opacity: .17;
+
+            left: -120px;
+            bottom: -100px;
+        }
+
+        /* ================= LOGO ================= */
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo span {
+            color: #f6a6a6;
+        }
+
+        /* ================= LEFT CONTENT ================= */
+
+        .left-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hello-icon {
+            width: 68px;
+            height: 68px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 20px;
+
+            background: rgba(255, 255, 255, .14);
+
+            border: 1px solid rgba(255, 255, 255, .15);
+
+            font-size: 31px;
+
+            margin-bottom: 25px;
+
+            animation: floatIcon 3s ease-in-out infinite;
+        }
+
+        .left-content h1 {
+            font-size: 38px;
+            line-height: 1.18;
+
+            margin-bottom: 17px;
+
+            letter-spacing: -.7px;
+        }
+
+        .left-content h1 span {
+            color: #f6a6a6;
+        }
+
+        .left-content p {
+            color: #e9e4f2;
+
+            font-size: 12px;
+            line-height: 1.9;
+
+            max-width: 340px;
+        }
+
+        /* ================= FEATURES ================= */
+
+        .features {
+            margin-top: 28px;
+
+            display: grid;
+            gap: 11px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
+
+            color: #f3eff8;
+
+            font-size: 10px;
+        }
+
+        .feature-icon {
+            width: 27px;
+            height: 27px;
+
+            border-radius: 9px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(255, 255, 255, .12);
+
+            font-size: 12px;
+        }
+
+        /* ================= RIGHT PANEL ================= */
+
+        .right-panel {
+            padding: 55px 70px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            background: #ffffff;
+        }
+
+        /* ================= FORM HEADING ================= */
+
+        .form-heading {
+            text-align: center;
+
+            margin-bottom: 30px;
+        }
+
+        .form-icon {
+            width: 60px;
+            height: 60px;
+
+            margin: 0 auto 15px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 18px;
+
+            background: linear-gradient(
+                135deg,
+                #b8dff2,
+                #f6a6a6
+            );
+
+            font-size: 26px;
+
+            box-shadow: 0 9px 20px rgba(102, 88, 143, .14);
+
+            animation: floatIcon 3s ease-in-out infinite;
+        }
+
+        .form-heading h2 {
+            font-size: 27px;
+
+            color: #66588f;
+        }
+
+        .form-heading p {
+            margin-top: 5px;
+
+            font-size: 11px;
+
+            color: #9994a7;
+        }
+
+        /* ================= INPUTS ================= */
+
+        .input-group {
+            margin-bottom: 18px;
+        }
+
+        .input-group label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #66588f;
+
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .input-box {
+            position: relative;
+        }
+
+        .input-icon {
+            position: absolute;
+
+            left: 15px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            font-size: 15px;
+
+            z-index: 2;
+        }
+
+        .input-box input {
+            width: 100%;
+
+            padding: 14px 15px 14px 44px;
+
+            border: 1px solid #e8e4ef;
+
+            border-radius: 12px;
+
+            background: #fcfbfe;
+
+            outline: none;
+
+            font-family: inherit;
+
+            font-size: 12px;
+
+            color: #66588f;
+
+            transition: .3s ease;
+        }
+
+        .input-box input::placeholder {
+            color: #aaa6b5;
+        }
+
+        .input-box input:focus {
+            background: white;
+
+            border-color: #66588f;
+
+            box-shadow: 0 0 0 4px rgba(102, 88, 143, .10);
+
+            transform: translateY(-1px);
+        }
+
+        /* ================= OPTIONS ================= */
+
+        .options {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            margin: 2px 0 23px;
+
+            font-size: 10px;
+        }
+
+        .remember {
+            display: flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            color: #8d889b;
+        }
+
+        .remember input {
+            accent-color: #66588f;
+        }
+
+        .forgot {
+            color: #66588f;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            transition: .3s;
+        }
+
+        .forgot:hover {
+            color: #e47f87;
+        }
+
+        /* ================= LOGIN BUTTON ================= */
+
+        .login-btn {
+            width: 100%;
+
+            border: none;
+
+            padding: 15px;
+
+            border-radius: 12px;
+
+            background: #66588f;
+
+            color: white;
+
+            font-family: inherit;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            position: relative;
+
+            overflow: hidden;
+
+            box-shadow: 0 10px 23px rgba(102, 88, 143, .25);
+
+            transition: .35s ease;
+        }
+
+        .login-btn::before {
+            content: "";
+
+            position: absolute;
+
+            width: 0;
+            height: 100%;
+
+            left: 0;
+            top: 0;
+
+            background: linear-gradient(
+                90deg,
+                #f6a6a6,
+                #b8dff2
+            );
+
+            transition: .4s ease;
+
+            z-index: 0;
+        }
+
+        .login-btn span {
+            position: relative;
+            z-index: 2;
+        }
+
+        .login-btn:hover::before {
+            width: 100%;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-4px);
+
+            box-shadow: 0 15px 28px rgba(102, 88, 143, .32);
+        }
+
+        .login-btn:active {
+            transform: scale(.98);
+        }
+
+        /* ================= REGISTER ================= */
+
+        .register {
+            text-align: center;
+
+            margin-top: 24px;
+
+            color: #9691a3;
+
+            font-size: 11px;
+        }
+
+        .register a {
+            color: #66588f;
+
+            font-weight: 800;
+
+            text-decoration: none;
+
+            transition: .3s;
+        }
+
+        .register a:hover {
+            color: #e47f87;
+        }
+
+        /* ================= HOME ================= */
+
+        .home {
+            text-align: center;
+
+            margin-top: 14px;
+        }
+
+        .home a {
+            text-decoration: none;
+
+            color: #aaa5b4;
+
+            font-size: 10px;
+
+            transition: .3s;
+        }
+
+        .home a:hover {
+            color: #66588f;
+        }
+
+        /* ================= ANIMATIONS ================= */
+
+        @keyframes pageIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px) scale(.97);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+
+        }
+
+        @keyframes floatIcon {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-7px);
+            }
+
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 800px) {
+
+            body {
+                overflow: auto;
+                padding: 18px;
+            }
+
+            .login-container {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+
+            .left-panel {
+                padding: 35px;
+                min-height: 350px;
+            }
+
+            .left-content h1 {
+                font-size: 30px;
+            }
+
+            .right-panel {
+                padding: 40px 35px;
+            }
+
+        }
+
+        @media (max-width: 480px) {
+
+            .left-panel {
+                padding: 30px;
+            }
+
+            .right-panel {
+                padding: 35px 25px;
+            }
+
+            .left-content h1 {
+                font-size: 27px;
+            }
+
+            .features {
+                display: none;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- Background Shapes -->
+
+    <div class="shape shape-pink"></div>
+    <div class="shape shape-blue"></div>
+    <div class="shape shape-small"></div>
+
+
+    <!-- ================= MAIN LOGIN BOX ================= -->
+
+    <div class="login-container">
+
+
+        <!-- ================= LEFT SIDE ================= -->
+
+        <section class="left-panel">
+
+            <div class="logo">
+                Lingo <span>Sphere</span>
+            </div>
+
+
+            <div class="left-content">
+
+                <div class="hello-icon">
+                    👋
+                </div>
+
+                <h1>
+                    Welcome<br>
+                    <span>Back!</span>
+                </h1>
+
+                <p>
+                    Your English learning journey is waiting
+                    for you. Sign in and continue learning,
+                    practicing and improving every day.
+                </p>
+
+
+                <div class="features">
+
+                    <div class="feature">
+
+                        <div class="feature-icon">
+                            📚
+                        </div>
+
+                        Interactive Learning
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <div class="feature-icon">
+                            🎮
+                        </div>
+
+                        Fun Games & Quizzes
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <div class="feature-icon">
+                            🏆
+                        </div>
+
+                        Track Your Progress
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= RIGHT SIDE ================= -->
+
+        <section class="right-panel">
+
+
+            <div class="form-heading">
+
+                <div class="form-icon">
+                    🔐
+                </div>
+
+                <h2>
+                    Sign In
+                </h2>
+
+                <p>
+                    Enter your details to continue to Lingo Sphere
+                </p>
+
+            </div>
+
+
+            <form method="POST" action="/login">
+
+
+                <!-- EMAIL -->
+
+                <div class="input-group">
+
+                    <label>
+                        Email Address
+                    </label>
+
+                    <div class="input-box">
+
+                        <span class="input-icon">
+                            ✉️
+                        </span>
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Enter your email address"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="input-group">
+
+                    <label>
+                        Password
+                    </label>
+
+                    <div class="input-box">
+
+                        <span class="input-icon">
+                            🔒
+                        </span>
+
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- OPTIONS -->
+
+                <div class="options">
+
+                    <label class="remember">
+
+                        <input type="checkbox">
+
+                        Remember me
+
+                    </label>
+
+
+                    <a href="#" class="forgot">
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button type="submit" class="login-btn">
+
+                    <span>
+                        Login to Lingo Sphere&nbsp; →
+                    </span>
+
+                </button>
+
+
+            </form>
+
+
+            <!-- REGISTER LINK -->
+
+            <div class="register">
+
+                Don't have an account?
+
+                <a href="/register">
+                    Create Account
+                </a>
+
+            </div>
+
+
+            <!-- HOME LINK -->
+
+            <div class="home">
+
+                <a href="/">
+                    ← Back to Home
+                </a>
+
+            </div>
+
+
+        </section>
+
+    </div>
+
+</body>
+
+</html>

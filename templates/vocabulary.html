@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lingo Sphere | Level 1</title>
+
+<style>
+
+:root{
+    --lavender:#eee5f5;
+    --lavender2:#e3d5eb;
+    --plum:#44334d;
+    --plum2:#604b68;
+    --pink:#f5dce6;
+    --pink2:#d89aae;
+    --cream:#fcf9fd;
+    --white:#ffffff;
+    --text:#3d3343;
+    --muted:#786e7b;
+    --border:#e9dfec;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:var(--cream);
+    color:var(--text);
+}
+
+
+/* ================= BACKGROUND ================= */
+
+.bg{
+    position:fixed;
+    z-index:-1;
+    border-radius:50%;
+    pointer-events:none;
+}
+
+.bg1{
+    width:330px;
+    height:330px;
+    background:#eee3f4;
+    top:-150px;
+    right:-100px;
+    animation:float 7s infinite ease-in-out;
+}
+
+.bg2{
+    width:260px;
+    height:260px;
+    background:#f7dfe8;
+    bottom:-120px;
+    left:-100px;
+    animation:float 8s infinite ease-in-out reverse;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(25px);
+    }
+}
+
+
+/* ================= MAIN ================= */
+
+.container{
+    width:92%;
+    max-width:1250px;
+    margin:auto;
+    padding:25px 0 70px;
+}
+
+
+/* ================= NAV ================= */
+
+.nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.back{
+    text-decoration:none;
+    color:var(--plum2);
+    font-size:14px;
+    font-weight:600;
+}
+
+.back:hover{
+    color:var(--plum);
+}
+
+.badge{
+    background:var(--lavender);
+    color:var(--plum);
+    padding:9px 17px;
+    border-radius:30px;
+    font-size:11px;
+    font-weight:700;
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:330px;
+    padding:48px;
+    border-radius:32px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #e9ddf1,
+        #f5e0e8
+    );
+
+    border:1px solid #e3d7e8;
+
+    position:relative;
+    overflow:hidden;
+
+    box-shadow:
+    0 18px 40px rgba(65,45,75,.08);
+
+    animation:appear .7s ease;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.hero-content{
+    max-width:720px;
+}
+
+.label{
+    display:inline-block;
+    padding:7px 14px;
+    border-radius:20px;
+    background:rgba(255,255,255,.6);
+    color:#705d77;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.7px;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:45px;
+    line-height:1.12;
+    color:var(--plum);
+    margin-bottom:15px;
+}
+
+.hero h1 span{
+    color:#986175;
+}
+
+.hero p{
+    font-size:15px;
+    line-height:1.8;
+    color:#716574;
+}
+
+.hero-icon{
+    position:absolute;
+    right:85px;
+    top:70px;
+
+    width:145px;
+    height:145px;
+
+    background:rgba(255,255,255,.55);
+
+    border-radius:40px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:70px;
+
+    box-shadow:
+    0 15px 30px rgba(65,45,75,.07);
+
+    animation:book 4s infinite ease-in-out;
+}
+
+@keyframes book{
+    0%,100%{
+        transform:translateY(0) rotate(-2deg);
+    }
+    50%{
+        transform:translateY(-10px) rotate(2deg);
+    }
+}
+
+
+/* ================= PROGRESS ================= */
+
+.progress{
+    background:white;
+    margin-top:20px;
+    padding:20px 24px;
+    border-radius:20px;
+    border:1px solid var(--border);
+    box-shadow:0 10px 25px rgba(65,45,75,.05);
+}
+
+.progress-top{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.percent{
+    color:#9b6579;
+}
+
+.progress-bar{
+    height:9px;
+    background:#eee9f1;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    width:20%;
+    height:100%;
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #80618d,
+        #d596aa
+    );
+
+    animation:progress 1.3s ease;
+}
+
+@keyframes progress{
+    from{width:0}
+    to{width:20%}
+}
+
+
+/* ================= SECTION ================= */
+
+.section{
+    margin-top:42px;
+}
+
+.heading{
+    margin-bottom:20px;
+}
+
+.heading h2{
+    font-size:28px;
+    color:var(--plum);
+}
+
+.heading p{
+    color:var(--muted);
+    font-size:13px;
+    margin-top:6px;
+}
+
+
+/* ================= LEARNING CARDS ================= */
+
+.learning{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.learn-card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:28px;
+    box-shadow:0 10px 25px rgba(65,45,75,.05);
+    transition:.3s;
+}
+
+.learn-card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 18px 35px rgba(65,45,75,.10);
+}
+
+.learn-icon{
+    width:55px;
+    height:55px;
+    border-radius:17px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:var(--lavender);
+
+    font-size:27px;
+    margin-bottom:17px;
+}
+
+.learn-card:nth-child(2) .learn-icon{
+    background:var(--pink);
+}
+
+.learn-card:nth-child(3) .learn-icon{
+    background:#e5deed;
+}
+
+.learn-card h3{
+    font-size:18px;
+    margin-bottom:8px;
+}
+
+.learn-card p{
+    font-size:13px;
+    line-height:1.7;
+    color:var(--muted);
+}
+
+
+/* ================= WORD CARDS ================= */
+
+.words{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:17px;
+}
+
+.word-card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:22px;
+    transition:.3s;
+}
+
+.word-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 30px rgba(65,45,75,.08);
+}
+
+.word-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:9px;
+}
+
+.word{
+    font-size:21px;
+    font-weight:700;
+    color:var(--plum);
+}
+
+.part{
+    font-size:10px;
+    font-weight:700;
+    background:var(--lavender);
+    color:#6c5875;
+    padding:5px 10px;
+    border-radius:10px;
+}
+
+.word-card p{
+    font-size:13px;
+    color:var(--muted);
+    line-height:1.65;
+}
+
+.example{
+    margin-top:12px;
+    padding:11px;
+    background:#fcf6f9;
+    border-left:3px solid var(--pink2);
+    font-size:12px;
+    color:#665967;
+}
+
+
+/* ================= AUDIO ================= */
+
+.audio-btn{
+    border:none;
+    background:var(--plum);
+    color:white;
+
+    width:38px;
+    height:38px;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    margin-left:8px;
+
+    transition:.25s;
+
+    font-size:16px;
+}
+
+.audio-btn:hover{
+    background:#695273;
+    transform:scale(1.08);
+}
+
+.word-title{
+    display:flex;
+    align-items:center;
+}
+
+
+/* ================= LISTEN SECTION ================= */
+
+.listen{
+    background:
+    linear-gradient(
+        135deg,
+        #46374f,
+        #5b465f
+    );
+
+    color:white;
+
+    padding:32px;
+
+    border-radius:26px;
+
+    box-shadow:
+    0 18px 35px rgba(60,45,65,.12);
+}
+
+.listen h2{
+    font-size:25px;
+    margin-bottom:7px;
+}
+
+.listen-intro{
+    color:#ded5e1;
+    font-size:13px;
+    line-height:1.7;
+    max-width:750px;
+}
+
+.listen-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+    margin-top:22px;
+}
+
+.listen-word{
+    background:rgba(255,255,255,.09);
+    border:1px solid rgba(255,255,255,.1);
+    padding:18px;
+    border-radius:16px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.listen-word strong{
+    font-size:15px;
+}
+
+.listen-word small{
+    display:block;
+    color:#cfc2d3;
+    margin-top:4px;
+    font-size:11px;
+}
+
+
+/* ================= PRACTICE ================= */
+
+.practice{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.practice-card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:23px;
+    padding:27px;
+    box-shadow:0 10px 25px rgba(65,45,75,.05);
+}
+
+.practice-card h3{
+    color:var(--plum);
+    font-size:20px;
+    margin-bottom:8px;
+}
+
+.practice-card > p{
+    color:var(--muted);
+    font-size:13px;
+    margin-bottom:18px;
+}
+
+.sentence{
+    padding:16px;
+    background:#faf7fb;
+    border-radius:14px;
+    margin-bottom:12px;
+    font-size:13px;
+    line-height:1.6;
+}
+
+.blank{
+    display:inline-block;
+    min-width:90px;
+    border-bottom:2px solid #a97889;
+    color:#a97889;
+    text-align:center;
+}
+
+
+/* ================= QUIZ ================= */
+
+.quiz{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:25px;
+    padding:30px;
+    box-shadow:0 10px 25px rgba(65,45,75,.05);
+}
+
+.quiz h2{
+    color:var(--plum);
+    font-size:25px;
+}
+
+.quiz > p{
+    color:var(--muted);
+    font-size:13px;
+    margin-top:5px;
+    margin-bottom:22px;
+}
+
+.question{
+    background:#faf7fb;
+    padding:20px;
+    border-radius:16px;
+    margin-bottom:14px;
+}
+
+.question:last-child{
+    margin-bottom:0;
+}
+
+.question strong{
+    font-size:14px;
+}
+
+.options{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-top:13px;
+}
+
+.option{
+    padding:9px 14px;
+    background:white;
+    border:1px solid #e5dce8;
+    border-radius:10px;
+    font-size:12px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.option:hover{
+    background:var(--lavender);
+    color:var(--plum);
+    transform:translateY(-2px);
+}
+
+
+/* ================= NEXT ================= */
+
+.next{
+    margin-top:30px;
+
+    padding:25px;
+
+    border-radius:22px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #f5dfe7,
+        #e9def1
+    );
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.next h3{
+    color:var(--plum);
+}
+
+.next p{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:5px;
+}
+
+.next-btn{
+    text-decoration:none;
+    background:var(--plum);
+    color:white;
+    padding:13px 20px;
+    border-radius:11px;
+    font-size:12px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.next-btn:hover{
+    transform:translateY(-3px);
+    background:#5b4562;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+    .learning{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .listen-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .hero-icon{
+        right:35px;
+    }
+
+    .practice{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:700px){
+
+    .hero{
+        padding:32px;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .hero-icon{
+        display:none;
+    }
+
+    .learning,
+    .words,
+    .listen-grid{
+        grid-template-columns:1fr;
+    }
+
+    .next{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:18px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="bg bg1"></div>
+<div class="bg bg2"></div>
+
+
+<div class="container">
+
+
+<!-- ================= NAV ================= -->
+
+<div class="nav">
+
+<a href="/course" class="back">
+← Back to Learning Path
+</a>
+
+<div class="badge">
+LEVEL 01 • MODERATE
+</div>
+
+</div>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="label">
+LINGO SPHERE • UNDERGRADUATE ENGLISH
+</div>
+
+<h1>
+Advanced Vocabulary
+<br>
+<span>& Word Usage</span>
+</h1>
+
+<p>
+Move beyond basic English vocabulary. Learn how to
+understand, pronounce and use powerful words in
+academic discussions, assignments, presentations
+and professional communication.
+</p>
+
+</div>
+
+
+<div class="hero-icon">
+📖
+</div>
+
+</section>
+
+
+<!-- ================= PROGRESS ================= -->
+
+<div class="progress">
+
+<div class="progress-top">
+
+<span>
+Level 01 Progress
+</span>
+
+<span class="percent">
+20%
+</span>
+
+</div>
+
+<div class="progress-bar">
+
+<div class="progress-fill"></div>
+
+</div>
+
+</div>
+
+
+<!-- ================= LEARNING ================= -->
+
+<section class="section">
+
+<div class="heading">
+
+<h2>
+What You'll Learn
+</h2>
+
+<p>
+Build vocabulary skills useful for university and professional life.
+</p>
+
+</div>
+
+
+<div class="learning">
+
+
+<div class="learn-card">
+
+<div class="learn-icon">
+🎓
+</div>
+
+<h3>
+Academic Vocabulary
+</h3>
+
+<p>
+Understand words frequently used in lectures,
+textbooks, assignments, research papers and
+academic discussions.
+</p>
+
+</div>
+
+
+<div class="learn-card">
+
+<div class="learn-icon">
+🧠
+</div>
+
+<h3>
+Contextual Meaning
+</h3>
+
+<p>
+Learn how the meaning of a word can change
+depending on the sentence, topic and purpose
+of communication.
+</p>
+
+</div>
+
+
+<div class="learn-card">
+
+<div class="learn-icon">
+✍️
+</div>
+
+<h3>
+Precise Word Choice
+</h3>
+
+<p>
+Choose stronger and more appropriate vocabulary
+instead of depending on simple everyday words.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ================= WORD BANK ================= -->
+
+<section class="section">
+
+<div class="heading">
+
+<h2>
+Essential Vocabulary
+</h2>
+
+<p>
+Learn the meaning, pronunciation and practical usage of each word.
+</p>
+
+</div>
+
+
+<div class="words">
+
+
+<!-- WORD 1 -->
+
+<div class="word-card">
+
+<div class="word-head">
+
+<div class="word-title">
+
+<div class="word">
+Analyze
+</div>
+
+<button class="audio-btn"
+onclick="speak('Analyze')">
+🔊
+</button>
+
+</div>
+
+<div class="part">
+VERB
+</div>
+
+</div>
+
+<p>
+To examine information carefully in order to
+understand its parts, meaning or relationship.
+</p>
+
+<div class="example">
+<b>Example:</b>
+Students analyze the results of the experiment.
+</div>
+
+</div>
+
+
+<!-- WORD 2 -->
+
+<div class="word-card">
+
+<div class="word-head">
+
+<div class="word-title">
+
+<div class="word">
+Evaluate
+</div>
+
+<button class="audio-btn"
+onclick="speak('Evaluate')">
+🔊
+</button>
+
+</div>
+
+<div class="part">
+VERB
+</div>
+
+</div>
+
+<p>
+To judge the quality, value or effectiveness
+of something using evidence or criteria.
+</p>
+
+<div class="example">
+<b>Example:</b>
+Researchers evaluate different solutions.
+</div>
+
+</div>
+
+
+<!-- WORD 3 -->
+
+<div class="word-card">
+
+<div class="word-head">
+
+<div class="word-title">
+
+<div class="word">
+Significant
+</div>
+
+<button class="audio-btn"
+onclick="speak('Significant')">
+🔊
+</button>
+
+</div>
+
+<div class="part">
+ADJECTIVE
+</div>
+
+</div>
+
+<p>
+Important or meaningful enough to have
+a noticeable effect or influence.
+</p>
+
+<div class="example">
+<b>Example:</b>
+The study showed a significant improvement.
+</div>
+
+</div>
+
+
+<!-- WORD 4 -->
+
+<div class="word-card">
+
+<div class="word-head">
+
+<div class="word-title">
+
+<div class="word">
+Evidence
+</div>
+
+<button class="audio-btn"
+onclick="speak('Evidence')">
+🔊
+</button>
+
+</div>
+
+<div class="part">
+NOUN
+</div>
+
+</div>
+
+<p>
+Facts or information used to support an
+idea, argument or conclusion.
+</p>
+
+<div class="example">
+<b>Example:</b>
+The researcher provided evidence for the claim.
+</div>
+
+</div>
+
+
+<!-- WORD 5 -->
+
+<div class="word-card">
+
+<div class="word-head">
+
+<div class="word-title">
+
+<div class="word">
+Approach
+</div>
+
+<button class="audio-btn"
+onclick="speak('Approach')">
+🔊
+</button>
+
+</div>
+
+<div class="part">
+NOUN
+</div>
+
+</div>
+
+<p>
+A particular method or way of dealing
+with a problem or situation.
+</p>
+
+<div class="example">
+<b>Example:</b>
+This approach improves student engagement.
+</div>
+
+</div>
+
+
+<!-- WORD 6 -->
+
+<div class="word-card">
+
+<div class="word-head">
+
+<div class="word-title">
+
+<div class="word">
+Establish
+</div>
+
+<button class="audio-btn"
+onclick="speak('Establish')">
+🔊
+</button>
+
+</div>
+
+<div class="part">
+VERB
+</div>
+
+</div>
+
+<p>
+To prove, demonstrate or successfully
+create something.
+</p>
+
+<div class="example">
+<b>Example:</b>
+The research establishes a clear relationship.
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ================= LISTEN ================= -->
+
+<section class="section">
+
+<div class="listen">
+
+<h2>
+🎧 Listen & Repeat
+</h2>
+
+<p class="listen-intro">
+Click the speaker button to hear the pronunciation.
+Listen carefully, repeat the word aloud and then
+try using it in your own sentence.
+</p>
+
+
+<div class="listen-grid">
+
+
+<div class="listen-word">
+
+<div>
+
+<strong>Analyze</strong>
+
+<small>To examine carefully</small>
+
+</div>
+
+<button class="audio-btn"
+onclick="speak('Analyze')">
+🔊
+</button>
+
+</div>
+
+
+<div class="listen-word">
+
+<div>
+
+<strong>Evaluate</strong>
+
+<small>To judge or assess</small>
+
+</div>
+
+<button class="audio-btn"
+onclick="speak('Evaluate')">
+🔊
+</button>
+
+</div>
+
+
+<div class="listen-word">
+
+<div>
+
+<strong>Significant</strong>
+
+<small>Important or meaningful</small>
+
+</div>
+
+<button class="audio-btn"
+onclick="speak('Significant')">
+🔊
+</button>
+
+</div>
+
+
+<div class="listen-word">
+
+<div>
+
+<strong>Evidence</strong>
+
+<small>Supporting information</small>
+
+</div>
+
+<button class="audio-btn"
+onclick="speak('Evidence')">
+🔊
+</button>
+
+</div>
+
+
+<div class="listen-word">
+
+<div>
+
+<strong>Approach</strong>
+
+<small>A method or way</small>
+
+</div>
+
+<button class="audio-btn"
+onclick="speak('Approach')">
+🔊
+</button>
+
+</div>
+
+
+<div class="listen-word">
+
+<div>
+
+<strong>Establish</strong>
+
+<small>To prove or create</small>
+
+</div>
+
+<button class="audio-btn"
+onclick="speak('Establish')">
+🔊
+</button>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PRACTICE ================= -->
+
+<section class="section">
+
+<div class="heading">
+
+<h2>
+Practice in Context
+</h2>
+
+<p>
+Use the vocabulary instead of simply memorizing definitions.
+</p>
+
+</div>
+
+
+<div class="practice">
+
+
+<div class="practice-card">
+
+<h3>
+✍️ Complete the Sentence
+</h3>
+
+<p>
+Choose the word that best fits each sentence.
+</p>
+
+
+<div class="sentence">
+The researcher will
+<span class="blank">______</span>
+the collected data.
+</div>
+
+
+<div class="sentence">
+The experiment produced a
+<span class="blank">______</span>
+difference in results.
+</div>
+
+
+<div class="sentence">
+The report provides strong
+<span class="blank">______</span>
+for the conclusion.
+</div>
+
+</div>
+
+
+<div class="practice-card">
+
+<h3>
+💡 Think & Apply
+</h3>
+
+<p>
+Create your own academic sentences using
+these words.
+</p>
+
+
+<div class="sentence">
+Use <b>Analyze</b> in a sentence related to your subject.
+</div>
+
+<div class="sentence">
+Use <b>Evaluate</b> when discussing a project or system.
+</div>
+
+<div class="sentence">
+Use <b>Evidence</b> while explaining an argument.
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ================= QUIZ ================= -->
+
+<section class="section">
+
+<div class="quiz">
+
+<h2>
+🎯 Quick Challenge
+</h2>
+
+<p>
+Test your understanding before moving to Level 2.
+</p>
+
+
+<div class="question">
+
+<strong>
+1. Which word means "to examine something carefully"?
+</strong>
+
+<div class="options">
+
+<div class="option">
+Establish
+</div>
+
+<div class="option">
+Analyze
+</div>
+
+<div class="option">
+Approach
+</div>
+
+<div class="option">
+Evidence
+</div>
+
+</div>
+
+</div>
+
+
+<div class="question">
+
+<strong>
+2. Which word means information used to support an argument?
+</strong>
+
+<div class="options">
+
+<div class="option">
+Evidence
+</div>
+
+<div class="option">
+Significant
+</div>
+
+<div class="option">
+Approach
+</div>
+
+<div class="option">
+Analyze
+</div>
+
+</div>
+
+</div>
+
+
+<div class="question">
+
+<strong>
+3. Which word means a method of dealing with a problem?
+</strong>
+
+<div class="options">
+
+<div class="option">
+Evidence
+</div>
+
+<div class="option">
+Approach
+</div>
+
+<div class="option">
+Establish
+</div>
+
+<div class="option">
+Significant
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ================= NEXT ================= -->
+
+<div class="next">
+
+<div>
+
+<h3>
+Ready for Level 02? ✨
+</h3>
+
+<p>
+Next: Advanced Grammar & Sentence Structure
+</p>
+
+</div>
+
+
+<a href="/advanced-grammar" class="next-btn">
+Continue to Level 2 →
+</a>
+
+</div>
+
+
+</div>
+
+
+<!-- ================= AUDIO SCRIPT ================= -->
+
+<script>
+
+function speak(word){
+
+    if("speechSynthesis" in window){
+
+        window.speechSynthesis.cancel();
+
+        const speech =
+            new SpeechSynthesisUtterance(word);
+
+        speech.lang="en-US";
+
+        speech.rate=0.75;
+
+        speech.pitch=1;
+
+        window.speechSynthesis.speak(speech);
+
+    }else{
+
+        alert(
+            "Audio pronunciation is not supported in this browser."
+        );
+
+    }
+
+}
+
+</script>
+
+
+</body>
+</html>

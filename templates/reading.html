@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lingo Sphere | Level 3 - Critical Reading</title>
+
+<style>
+
+:root{
+    --lav:#eee5f5;
+    --lav2:#e2d5e9;
+    --plum:#44334d;
+    --plum2:#604b68;
+    --pink:#f5dce6;
+    --pink2:#d79aae;
+    --cream:#fcf9fd;
+    --white:#fff;
+    --text:#3d3343;
+    --muted:#786e7b;
+    --border:#e8deec;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:var(--cream);
+    color:var(--text);
+}
+
+.bg{
+    position:fixed;
+    z-index:-1;
+    border-radius:50%;
+    pointer-events:none;
+}
+
+.bg1{
+    width:330px;
+    height:330px;
+    top:-150px;
+    right:-100px;
+    background:#eee3f4;
+    animation:float 7s infinite ease-in-out;
+}
+
+.bg2{
+    width:270px;
+    height:270px;
+    bottom:-120px;
+    left:-100px;
+    background:#f7dfe8;
+    animation:float 8s infinite ease-in-out reverse;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(25px)}
+}
+
+.container{
+    width:92%;
+    max-width:1250px;
+    margin:auto;
+    padding:25px 0 70px;
+}
+
+
+/* NAV */
+
+.nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.back{
+    text-decoration:none;
+    color:var(--plum2);
+    font-size:14px;
+    font-weight:600;
+}
+
+.badge{
+    background:var(--lav);
+    color:var(--plum);
+    padding:9px 18px;
+    border-radius:30px;
+    font-size:11px;
+    font-weight:700;
+}
+
+
+/* HERO */
+
+.hero{
+    min-height:340px;
+    padding:48px;
+    border-radius:32px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #e9ddf1,
+        #f5e0e8
+    );
+
+    border:1px solid #e3d7e8;
+    position:relative;
+    overflow:hidden;
+
+    box-shadow:0 18px 40px rgba(65,45,75,.08);
+
+    animation:appear .7s ease;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.hero-content{
+    max-width:740px;
+}
+
+.label{
+    display:inline-block;
+    padding:7px 14px;
+    border-radius:20px;
+    background:rgba(255,255,255,.6);
+    color:#705d77;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.7px;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:44px;
+    line-height:1.12;
+    color:var(--plum);
+    margin-bottom:14px;
+}
+
+.hero h1 span{
+    color:#986175;
+}
+
+.hero p{
+    font-size:15px;
+    line-height:1.8;
+    color:#716574;
+}
+
+.hero-icon{
+    position:absolute;
+    right:80px;
+    top:70px;
+
+    width:150px;
+    height:150px;
+
+    background:rgba(255,255,255,.55);
+    border-radius:42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:70px;
+
+    box-shadow:0 15px 30px rgba(65,45,75,.07);
+
+    animation:iconFloat 4s infinite ease-in-out;
+}
+
+@keyframes iconFloat{
+    0%,100%{
+        transform:translateY(0) rotate(-2deg);
+    }
+
+    50%{
+        transform:translateY(-10px) rotate(2deg);
+    }
+}
+
+
+/* PROGRESS */
+
+.progress{
+    background:white;
+    margin-top:20px;
+    padding:20px 24px;
+    border-radius:20px;
+    border:1px solid var(--border);
+    box-shadow:0 10px 25px rgba(65,45,75,.05);
+}
+
+.progress-top{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.percent{
+    color:#9b6579;
+}
+
+.progress-bar{
+    height:9px;
+    background:#eee9f1;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    width:58%;
+    height:100%;
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #80618d,
+        #d596aa
+    );
+
+    animation:load 1.2s ease;
+}
+
+@keyframes load{
+    from{width:0}
+    to{width:58%}
+}
+
+
+/* SECTION */
+
+.section{
+    margin-top:42px;
+}
+
+.heading{
+    margin-bottom:20px;
+}
+
+.heading h2{
+    font-size:28px;
+    color:var(--plum);
+}
+
+.heading p{
+    margin-top:6px;
+    color:var(--muted);
+    font-size:13px;
+}
+
+
+/* SKILLS */
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.skill{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:27px;
+    box-shadow:0 10px 25px rgba(65,45,75,.05);
+    transition:.3s;
+}
+
+.skill:hover{
+    transform:translateY(-7px);
+    box-shadow:0 18px 35px rgba(65,45,75,.1);
+}
+
+.skill-icon{
+    width:56px;
+    height:56px;
+    border-radius:17px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:var(--lav);
+    font-size:27px;
+    margin-bottom:16px;
+}
+
+.skill:nth-child(2) .skill-icon{
+    background:var(--pink);
+}
+
+.skill:nth-child(3) .skill-icon{
+    background:#e5deed;
+}
+
+.skill h3{
+    font-size:18px;
+    margin-bottom:8px;
+}
+
+.skill p{
+    font-size:13px;
+    line-height:1.7;
+    color:var(--muted);
+}
+
+
+/* READING PASSAGE */
+
+.reader{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:26px;
+    padding:32px;
+
+    box-shadow:0 10px 25px rgba(65,45,75,.05);
+}
+
+.reader-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.reader-top h3{
+    color:var(--plum);
+    font-size:22px;
+}
+
+.level-tag{
+    background:var(--pink);
+    color:#81556a;
+    padding:7px 12px;
+    border-radius:15px;
+    font-size:10px;
+    font-weight:700;
+}
+
+.article{
+    background:#faf7fc;
+    border-radius:18px;
+    padding:26px;
+    line-height:1.9;
+    font-size:14px;
+}
+
+.article h4{
+    color:var(--plum);
+    font-size:20px;
+    margin-bottom:15px;
+}
+
+.article p{
+    margin-bottom:14px;
+    color:#5f5662;
+}
+
+.highlight{
+    background:#eadff0;
+    color:#594360;
+    padding:2px 6px;
+    border-radius:5px;
+    font-weight:600;
+}
+
+
+/* READING TOOLS */
+
+.tools{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:18px;
+}
+
+.tool{
+    border:1px solid #e2d8e7;
+    background:white;
+    color:var(--plum);
+    padding:9px 14px;
+    border-radius:10px;
+    font-size:12px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.tool:hover{
+    background:var(--lav);
+    transform:translateY(-2px);
+}
+
+
+/* VOCAB */
+
+.vocab{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+
+.vocab-card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:21px;
+    transition:.3s;
+}
+
+.vocab-card:hover{
+    transform:translateY(-5px);
+}
+
+.vocab-card strong{
+    color:var(--plum);
+    font-size:16px;
+}
+
+.vocab-card p{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.7;
+    margin-top:7px;
+}
+
+.vocab-card span{
+    display:inline-block;
+    margin-top:10px;
+    background:var(--lav);
+    color:#695573;
+    padding:5px 9px;
+    border-radius:8px;
+    font-size:10px;
+}
+
+
+/* AUDIO */
+
+.audio-btn{
+    border:none;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:var(--plum);
+    color:white;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.audio-btn:hover{
+    transform:scale(1.08);
+    background:#695273;
+}
+
+
+/* QUESTIONS */
+
+.questions{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.question-box{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:27px;
+    box-shadow:0 10px 25px rgba(65,45,75,.05);
+}
+
+.question-box h3{
+    color:var(--plum);
+    margin-bottom:8px;
+}
+
+.question-box > p{
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:18px;
+}
+
+.question{
+    background:#faf7fb;
+    border-radius:15px;
+    padding:17px;
+    margin-bottom:12px;
+    font-size:13px;
+    line-height:1.6;
+}
+
+.options{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:11px;
+}
+
+.option{
+    background:white;
+    border:1px solid #e2d9e6;
+    border-radius:9px;
+    padding:8px 12px;
+    font-size:11px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.option:hover{
+    background:var(--lav);
+    color:var(--plum);
+}
+
+
+/* INFERENCE */
+
+.inference{
+    background:
+    linear-gradient(
+        135deg,
+        #46374f,
+        #5c4761
+    );
+
+    color:white;
+    padding:31px;
+    border-radius:26px;
+    box-shadow:0 18px 35px rgba(60,45,65,.12);
+}
+
+.inference h2{
+    font-size:25px;
+    margin-bottom:7px;
+}
+
+.inference-intro{
+    color:#ddd4e1;
+    font-size:13px;
+    line-height:1.7;
+    margin-bottom:22px;
+}
+
+.inference-card{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:16px;
+    padding:20px;
+    margin-bottom:13px;
+}
+
+.inference-card strong{
+    font-size:13px;
+}
+
+.inference-options{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-top:13px;
+}
+
+.inference-option{
+    background:white;
+    color:var(--plum);
+    padding:9px 13px;
+    border-radius:10px;
+    font-size:11px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.inference-option:hover{
+    background:var(--pink);
+    transform:translateY(-2px);
+}
+
+
+/* NEXT */
+
+.next{
+    margin-top:30px;
+    padding:25px;
+    border-radius:22px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #f5dfe7,
+        #e9def1
+    );
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.next h3{
+    color:var(--plum);
+    font-size:18px;
+}
+
+.next p{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:5px;
+}
+
+.next-btn{
+    text-decoration:none;
+    background:var(--plum);
+    color:white;
+    padding:13px 20px;
+    border-radius:11px;
+    font-size:12px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.next-btn:hover{
+    transform:translateY(-3px);
+    background:#5b4562;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .skills,
+    .vocab{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .questions{
+        grid-template-columns:1fr;
+    }
+
+    .hero-icon{
+        right:35px;
+    }
+}
+
+@media(max-width:700px){
+
+    .hero{
+        padding:32px;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .hero-icon{
+        display:none;
+    }
+
+    .skills,
+    .vocab{
+        grid-template-columns:1fr;
+    }
+
+    .next{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:18px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="bg bg1"></div>
+<div class="bg bg2"></div>
+
+
+<div class="container">
+
+
+<!-- NAV -->
+
+<div class="nav">
+
+<a href="/course" class="back">
+← Back to Learning Path
+</a>
+
+<div class="badge">
+LEVEL 03 • ADVANCED
+</div>
+
+</div>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="label">
+LINGO SPHERE • UNDERGRADUATE ENGLISH
+</div>
+
+<h1>
+Critical Reading
+<br>
+<span>& Comprehension</span>
+</h1>
+
+<p>
+Develop the ability to understand complex passages,
+identify main ideas, recognize supporting evidence,
+interpret vocabulary from context and make logical
+inferences from academic texts.
+</p>
+
+</div>
+
+<div class="hero-icon">
+📚
+</div>
+
+</section>
+
+
+<!-- PROGRESS -->
+
+<div class="progress">
+
+<div class="progress-top">
+
+<span>
+Level 03 Progress
+</span>
+
+<span class="percent">
+58%
+</span>
+
+</div>
+
+<div class="progress-bar">
+
+<div class="progress-fill"></div>
+
+</div>
+
+</div>
+
+
+<!-- SKILLS -->
+
+<section class="section">
+
+<div class="heading">
+
+<h2>
+Reading Skills
+</h2>
+
+<p>
+These skills help you understand university-level texts more effectively.
+</p>
+
+</div>
+
+
+<div class="skills">
+
+
+<div class="skill">
+
+<div class="skill-icon">
+🔎
+</div>
+
+<h3>
+Main Idea
+</h3>
+
+<p>
+Identify the central argument or message
+of a paragraph or complete passage.
+</p>
+
+</div>
+
+
+<div class="skill">
+
+<div class="skill-icon">
+🧩
+</div>
+
+<h3>
+Inference
+</h3>
+
+<p>
+Understand information that is not directly
+stated but can be logically concluded.
+</p>
+
+</div>
+
+
+<div class="skill">
+
+<div class="skill-icon">
+📌
+</div>
+
+<h3>
+Supporting Evidence
+</h3>
+
+<p>
+Recognize facts, examples and explanations
+that support the author's main argument.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- READING PASSAGE -->
+
+<section class="section">
+
+<div class="reader">
+
+<div class="reader-top">
+
+<h3>
+📖 Academic Reading
+</h3>
+
+<div class="level-tag">
+UNDERGRADUATE
+</div>
+
+</div>
+
+
+<div class="article">
+
+<h4>
+The Role of Technology in Education
+</h4>
+
+
+<p>
+
+Technology has become an important part of modern
+education. Digital platforms allow students to access
+learning materials, communicate with teachers and
+collaborate with classmates beyond the traditional
+classroom environment.
+
+</p>
+
+
+<p>
+
+However, the presence of technology does not
+automatically guarantee better learning outcomes.
+Students must know how to use digital resources
+effectively and critically. For example, simply
+searching for information online is not enough.
+Learners must also determine whether the information
+is reliable and relevant to their purpose.
+
+</p>
+
+
+<p>
+
+Therefore, successful digital learning requires more
+than access to technology. It requires students to
+develop <span class="highlight">critical thinking</span>,
+self-discipline and the ability to evaluate information.
+When these skills are combined with appropriate
+technology, digital learning can become a powerful
+educational tool.
+
+</p>
+
+</div>
+
+
+<div class="tools">
+
+<button class="tool"
+onclick="speak('The Role of Technology in Education')">
+🔊 Listen to Title
+</button>
+
+<button class="tool"
+onclick="speak('Technology has become an important part of modern education.')">
+🎧 Listen to Sentence
+</button>
+
+<button class="tool"
+onclick="showMessage()">
+💡 Reading Tip
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- VOCAB -->
+
+<section class="section">
+
+<div class="heading">
+
+<h2>
+Vocabulary in Context
+</h2>
+
+<p>
+Understand difficult words according to how they are used in the passage.
+</p>
+
+</div>
+
+
+<div class="vocab">
+
+
+<div class="vocab-card">
+
+<strong>
+Outcomes
+</strong>
+
+<p>
+The results or effects produced by an action or process.
+</p>
+
+<span>
+Results
+</span>
+
+</div>
+
+
+<div class="vocab-card">
+
+<strong>
+Reliable
+</strong>
+
+<p>
+Something that can be trusted to provide accurate information.
+</p>
+
+<span>
+Trustworthy
+</span>
+
+</div>
+
+
+<div class="vocab-card">
+
+<strong>
+Relevant
+</strong>
+
+<p>
+Closely connected with the topic or purpose being discussed.
+</p>
+
+<span>
+Related
+</span>
+
+</div>
+
+
+<div class="vocab-card">
+
+<strong>
+Evaluate
+</strong>
+
+<p>
+To carefully judge the quality or value of something.
+</p>
+
+<span>
+Assess
+</span>
+
+</div>
+
+
+<div class="vocab-card">
+
+<strong>
+Discipline
+</strong>
+
+<p>
+The ability to control behaviour and remain focused on a goal.
+</p>
+
+<span>
+Self-control
+</span>
+
+</div>
+
+
+<div class="vocab-card">
+
+<strong>
+Critical Thinking
+</strong>
+
+<p>
+The process of carefully examining information before accepting it.
+</p>
+
+<span>
+Reasoned thinking
+</span>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- QUESTIONS -->
+
+<section class="section">
+
+<div class="questions">
+
+
+<div class="question-box">
+
+<h3>
+🎯 Comprehension
+</h3>
+
+<p>
+Answer based only on the passage.
+</p>
+
+
+<div class="question">
+
+<b>1.</b>
+What is the main idea of the passage?
+
+<div class="options">
+
+<div class="option">
+Technology always improves education.
+</div>
+
+<div class="option">
+Technology is useful when combined with effective learning skills.
+</div>
+
+<div class="option">
+Students should avoid digital resources.
+</div>
+
+</div>
+
+</div>
+
+
+<div class="question">
+
+<b>2.</b>
+According to the passage, what should students evaluate?
+
+<div class="options">
+
+<div class="option">
+The reliability of information.
+</div>
+
+<div class="option">
+The classroom size.
+</div>
+
+<div class="option">
+The teacher's personality.
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="question-box">
+
+<h3>
+🧠 Author's Purpose
+</h3>
+
+<p>
+Identify what the writer is trying to communicate.
+</p>
+
+
+<div class="question">
+
+<b>3.</b>
+What does the author mainly suggest?
+
+<div class="options">
+
+<div class="option">
+Technology alone is enough.
+</div>
+
+<div class="option">
+Technology should be combined with critical skills.
+</div>
+
+<div class="option">
+Online education is ineffective.
+</div>
+
+</div>
+
+</div>
+
+
+<div class="question">
+
+<b>4.</b>
+Which skill is emphasized in the passage?
+
+<div class="options">
+
+<div class="option">
+Critical thinking
+</div>
+
+<div class="option">
+Memorization only
+</div>
+
+<div class="option">
+Typing speed
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- INFERENCE -->
+
+<section class="section">
+
+<div class="inference">
+
+<h2>
+🧠 Inference Challenge
+</h2>
+
+<p class="inference-intro">
+An inference is a conclusion that you reach using
+information given in the passage and logical reasoning.
+</p>
+
+
+<div class="inference-card">
+
+<strong>
+The passage says that access to technology alone
+does not guarantee better learning. What can we infer?
+</strong>
+
+<div class="inference-options">
+
+<div class="inference-option">
+Students need learning strategies.
+</div>
+
+<div class="inference-option">
+Technology should never be used.
+</div>
+
+<div class="inference-option">
+Digital resources are always unreliable.
+</div>
+
+</div>
+
+</div>
+
+
+<div class="inference-card">
+
+<strong>
+Why does the author mention reliability of online information?
+</strong>
+
+<div class="inference-options">
+
+<div class="inference-option">
+To show that students must think critically.
+</div>
+
+<div class="inference-option">
+To discourage students from studying.
+</div>
+
+<div class="inference-option">
+To explain computer hardware.
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- NEXT -->
+
+<div class="next">
+
+<div>
+
+<h3>
+Level 03 completed? ✨
+</h3>
+
+<p>
+Next: Professional Speaking & Presentation Skills
+</p>
+
+</div>
+
+
+<a href="/speaking" class="next-btn">
+Continue to Level 4 →
+</a>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+function speak(text){
+
+    if("speechSynthesis" in window){
+
+        window.speechSynthesis.cancel();
+
+        const voice =
+            new SpeechSynthesisUtterance(text);
+
+        voice.lang="en-US";
+
+        voice.rate=.78;
+
+        voice.pitch=1;
+
+        window.speechSynthesis.speak(voice);
+
+    }
+
+}
+
+
+function showMessage(){
+
+    alert(
+        "Reading Tip: First identify the main topic, then look for the author's main point and supporting evidence."
+    );
+
+}
+
+</script>
+
+
+</body>
+</html>

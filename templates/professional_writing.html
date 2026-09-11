@@ -1,0 +1,1812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lingo Sphere | Level 4 - Professional Speaking</title>
+
+<style>
+
+:root{
+    --lavender:#eee5f5;
+    --lavender-dark:#d9c9e3;
+    --plum:#44334d;
+    --plum-light:#604b68;
+    --pink:#f5dce6;
+    --pink-dark:#d59aaa;
+    --cream:#fcf9fd;
+    --white:#ffffff;
+    --text:#3d3343;
+    --muted:#786e7b;
+    --border:#e8deec;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:var(--cream);
+    color:var(--text);
+}
+
+
+/* ================= BACKGROUND ================= */
+
+.bg{
+    position:fixed;
+    z-index:-1;
+    border-radius:50%;
+    pointer-events:none;
+}
+
+.bg1{
+    width:330px;
+    height:330px;
+    top:-150px;
+    right:-100px;
+    background:#eee3f4;
+    animation:float 7s infinite ease-in-out;
+}
+
+.bg2{
+    width:270px;
+    height:270px;
+    bottom:-120px;
+    left:-110px;
+    background:#f7dfe8;
+    animation:float 8s infinite ease-in-out reverse;
+}
+
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(25px);
+    }
+
+}
+
+
+/* ================= CONTAINER ================= */
+
+.container{
+    width:92%;
+    max-width:1250px;
+    margin:auto;
+    padding:25px 0 70px;
+}
+
+
+/* ================= NAV ================= */
+
+.nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.back{
+    text-decoration:none;
+    color:var(--plum-light);
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.back:hover{
+    transform:translateX(-4px);
+}
+
+.badge{
+    background:var(--lavender);
+    color:var(--plum);
+    padding:9px 18px;
+    border-radius:30px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.5px;
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+
+    min-height:340px;
+
+    padding:48px;
+
+    border-radius:32px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e9ddf1,
+            #f5e0e8
+        );
+
+    border:1px solid #e3d7e8;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 18px 40px rgba(65,45,75,.08);
+
+    animation:appear .7s ease;
+}
+
+@keyframes appear{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.hero-content{
+    max-width:750px;
+}
+
+.label{
+
+    display:inline-block;
+
+    padding:7px 14px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.6);
+
+    color:#705d77;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:.7px;
+
+    margin-bottom:18px;
+}
+
+.hero h1{
+
+    font-size:44px;
+
+    line-height:1.12;
+
+    color:var(--plum);
+
+    margin-bottom:14px;
+}
+
+.hero h1 span{
+    color:#986175;
+}
+
+.hero p{
+
+    font-size:15px;
+
+    line-height:1.8;
+
+    color:#716574;
+}
+
+.hero-icon{
+
+    position:absolute;
+
+    right:80px;
+
+    top:70px;
+
+    width:150px;
+
+    height:150px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(255,255,255,.55);
+
+    border-radius:42px;
+
+    font-size:70px;
+
+    box-shadow:
+        0 15px 30px rgba(65,45,75,.07);
+
+    animation:iconFloat 4s infinite ease-in-out;
+}
+
+@keyframes iconFloat{
+
+    0%,100%{
+        transform:translateY(0) rotate(-2deg);
+    }
+
+    50%{
+        transform:translateY(-10px) rotate(2deg);
+    }
+
+}
+
+
+/* ================= PROGRESS ================= */
+
+.progress{
+
+    background:white;
+
+    margin-top:20px;
+
+    padding:20px 24px;
+
+    border-radius:20px;
+
+    border:1px solid var(--border);
+
+    box-shadow:
+        0 10px 25px rgba(65,45,75,.05);
+}
+
+.progress-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+}
+
+.percent{
+    color:#9b6579;
+}
+
+.progress-bar{
+
+    height:9px;
+
+    background:#eee9f1;
+
+    border-radius:20px;
+
+    overflow:hidden;
+}
+
+.progress-fill{
+
+    width:76%;
+
+    height:100%;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #80618d,
+            #d596aa
+        );
+
+    animation:progressLoad 1.2s ease;
+}
+
+@keyframes progressLoad{
+
+    from{
+        width:0;
+    }
+
+    to{
+        width:76%;
+    }
+
+}
+
+
+/* ================= SECTION ================= */
+
+.section{
+    margin-top:42px;
+}
+
+.heading{
+    margin-bottom:20px;
+}
+
+.heading h2{
+
+    font-size:28px;
+
+    color:var(--plum);
+}
+
+.heading p{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    margin-top:6px;
+}
+
+
+/* ================= SKILLS ================= */
+
+.skills{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:20px;
+}
+
+.skill{
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    padding:27px;
+
+    box-shadow:
+        0 10px 25px rgba(65,45,75,.05);
+
+    transition:.3s;
+}
+
+.skill:hover{
+
+    transform:translateY(-7px);
+
+    box-shadow:
+        0 18px 35px rgba(65,45,75,.10);
+}
+
+.skill-icon{
+
+    width:56px;
+
+    height:56px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--lavender);
+
+    border-radius:17px;
+
+    font-size:27px;
+
+    margin-bottom:16px;
+}
+
+.skill:nth-child(2) .skill-icon{
+    background:var(--pink);
+}
+
+.skill:nth-child(3) .skill-icon{
+    background:#e5deed;
+}
+
+.skill h3{
+
+    font-size:18px;
+
+    margin-bottom:8px;
+}
+
+.skill p{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+
+/* ================= SPEAKING PRACTICE ================= */
+
+.practice{
+
+    display:grid;
+
+    grid-template-columns:
+        1.2fr .8fr;
+
+    gap:20px;
+}
+
+.practice-card{
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:25px;
+
+    padding:30px;
+
+    box-shadow:
+        0 10px 25px rgba(65,45,75,.05);
+}
+
+.practice-card h3{
+
+    font-size:21px;
+
+    color:var(--plum);
+
+    margin-bottom:7px;
+}
+
+.practice-card > p{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.7;
+
+    margin-bottom:22px;
+}
+
+.sentence{
+
+    background:#faf7fc;
+
+    border-radius:17px;
+
+    padding:19px;
+
+    margin-bottom:12px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+
+    font-size:13px;
+
+    line-height:1.6;
+}
+
+.audio-btn{
+
+    flex-shrink:0;
+
+    border:none;
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:50%;
+
+    background:var(--plum);
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.audio-btn:hover{
+
+    transform:scale(1.1);
+
+    background:#695273;
+}
+
+
+/* ================= SPEAKING TIPS ================= */
+
+.tips{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+}
+
+.tip{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:12px;
+
+    padding:16px;
+
+    border-radius:15px;
+
+    background:#faf7fc;
+
+    font-size:12px;
+
+    line-height:1.6;
+}
+
+.tip-icon{
+
+    width:32px;
+
+    height:32px;
+
+    flex-shrink:0;
+
+    border-radius:10px;
+
+    background:var(--pink);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+}
+
+
+/* ================= PRESENTATION ================= */
+
+.presentation{
+
+    background:
+        linear-gradient(
+            135deg,
+            #46374f,
+            #5c4761
+        );
+
+    color:white;
+
+    padding:32px;
+
+    border-radius:27px;
+
+    box-shadow:
+        0 18px 35px rgba(60,45,65,.12);
+}
+
+.presentation h2{
+
+    font-size:25px;
+
+    margin-bottom:7px;
+}
+
+.presentation > p{
+
+    color:#ddd4e1;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+    margin-bottom:25px;
+}
+
+.steps{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:12px;
+}
+
+.step{
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    padding:20px;
+
+    border-radius:16px;
+
+    transition:.3s;
+}
+
+.step:hover{
+
+    background:rgba(255,255,255,.13);
+
+    transform:translateY(-4px);
+}
+
+.step-number{
+
+    width:32px;
+
+    height:32px;
+
+    border-radius:10px;
+
+    background:var(--pink);
+
+    color:var(--plum);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-weight:700;
+
+    margin-bottom:12px;
+}
+
+.step h4{
+
+    font-size:14px;
+
+    margin-bottom:6px;
+}
+
+.step p{
+
+    font-size:11px;
+
+    color:#ddd4e1;
+
+    line-height:1.6;
+}
+
+
+/* ================= CONVERSATION ================= */
+
+.conversation{
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:25px;
+
+    padding:30px;
+
+    box-shadow:
+        0 10px 25px rgba(65,45,75,.05);
+}
+
+.conversation h3{
+
+    color:var(--plum);
+
+    font-size:21px;
+
+    margin-bottom:7px;
+}
+
+.conversation > p{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    margin-bottom:20px;
+}
+
+.chat{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:13px;
+}
+
+.message{
+
+    max-width:75%;
+
+    padding:14px 17px;
+
+    border-radius:16px;
+
+    font-size:13px;
+
+    line-height:1.6;
+}
+
+.teacher{
+
+    align-self:flex-start;
+
+    background:var(--lavender);
+
+    border-bottom-left-radius:4px;
+}
+
+.student{
+
+    align-self:flex-end;
+
+    background:var(--pink);
+
+    border-bottom-right-radius:4px;
+}
+
+.message-label{
+
+    font-size:10px;
+
+    font-weight:700;
+
+    color:#806d87;
+
+    margin-bottom:4px;
+}
+
+
+/* ================= PHRASES ================= */
+
+.phrases{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:16px;
+}
+
+.phrase{
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:20px;
+
+    transition:.3s;
+}
+
+.phrase:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 12px 25px rgba(65,45,75,.07);
+}
+
+.phrase strong{
+
+    display:block;
+
+    color:var(--plum);
+
+    font-size:15px;
+
+    margin-bottom:7px;
+}
+
+.phrase span{
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    line-height:1.6;
+}
+
+
+/* ================= CHALLENGE ================= */
+
+.challenge{
+
+    margin-top:30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f5dfe7,
+            #e9def1
+        );
+
+    border-radius:23px;
+
+    padding:27px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+}
+
+.challenge h3{
+
+    color:var(--plum);
+
+    font-size:19px;
+}
+
+.challenge p{
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    margin-top:6px;
+}
+
+.record-btn{
+
+    border:none;
+
+    background:var(--plum);
+
+    color:white;
+
+    padding:13px 20px;
+
+    border-radius:11px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.record-btn:hover{
+
+    transform:translateY(-3px);
+
+    background:#5b4562;
+}
+
+
+/* ================= NEXT ================= */
+
+.next{
+
+    margin-top:30px;
+
+    padding:25px;
+
+    border-radius:22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f5dfe7,
+            #e9def1
+        );
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+.next h3{
+
+    color:var(--plum);
+
+    font-size:18px;
+}
+
+.next p{
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    margin-top:5px;
+}
+
+.next-btn{
+
+    text-decoration:none;
+
+    background:var(--plum);
+
+    color:white;
+
+    padding:13px 20px;
+
+    border-radius:11px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.next-btn:hover{
+
+    transform:translateY(-3px);
+
+    background:#5b4562;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:950px){
+
+    .practice{
+        grid-template-columns:1fr;
+    }
+
+    .steps{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .skills,
+    .phrases{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:700px){
+
+    .hero{
+        padding:32px;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .hero-icon{
+        display:none;
+    }
+
+    .skills,
+    .phrases,
+    .steps{
+        grid-template-columns:1fr;
+    }
+
+    .challenge,
+    .next{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="bg bg1"></div>
+<div class="bg bg2"></div>
+
+
+<div class="container">
+
+
+<!-- ================= NAV ================= -->
+
+<div class="nav">
+
+<a href="/course" class="back">
+← Back to Learning Path
+</a>
+
+<div class="badge">
+LEVEL 04 • ADVANCED
+</div>
+
+</div>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="label">
+LINGO SPHERE • UNDERGRADUATE ENGLISH
+</div>
+
+<h1>
+
+Professional Speaking
+
+<br>
+
+<span>
+& Presentation Skills
+</span>
+
+</h1>
+
+<p>
+
+Develop confident English communication for
+seminars, classroom presentations, interviews,
+group discussions and professional situations.
+
+</p>
+
+</div>
+
+
+<div class="hero-icon">
+🎤
+</div>
+
+</section>
+
+
+<!-- ================= PROGRESS ================= -->
+
+<div class="progress">
+
+<div class="progress-top">
+
+<span>
+Level 04 Progress
+</span>
+
+<span class="percent">
+76%
+</span>
+
+</div>
+
+<div class="progress-bar">
+
+<div class="progress-fill"></div>
+
+</div>
+
+</div>
+
+
+<!-- ================= SKILLS ================= -->
+
+<section class="section">
+
+<div class="heading">
+
+<h2>
+Communication Skills
+</h2>
+
+<p>
+Build the speaking abilities required in academic and professional environments.
+</p>
+
+</div>
+
+
+<div class="skills">
+
+
+<div class="skill">
+
+<div class="skill-icon">
+🎙️
+</div>
+
+<h3>
+Clear Speaking
+</h3>
+
+<p>
+
+Speak clearly with appropriate pace,
+pronunciation and sentence structure.
+
+</p>
+
+</div>
+
+
+<div class="skill">
+
+<div class="skill-icon">
+💬
+</div>
+
+<h3>
+Professional Conversation
+</h3>
+
+<p>
+
+Learn how to start conversations,
+respond naturally and express ideas politely.
+
+</p>
+
+</div>
+
+
+<div class="skill">
+
+<div class="skill-icon">
+📊
+</div>
+
+<h3>
+Presentation Skills
+</h3>
+
+<p>
+
+Organize and present information confidently
+during seminars and academic presentations.
+
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ================= SPEAKING PRACTICE ================= -->
+
+<section class="section">
+
+<div class="heading">
+
+<h2>
+Pronunciation & Speaking Practice
+</h2>
+
+<p>
+Listen to the sentence and practise speaking it aloud.
+</p>
+
+</div>
+
+
+<div class="practice">
+
+
+<div class="practice-card">
+
+<h3>
+🎧 Speak Like a Professional
+</h3>
+
+<p>
+Click the audio button, listen carefully and repeat
+the sentence using a natural speaking pace.
+</p>
+
+
+<div class="sentence">
+
+<span>
+Good morning everyone. Today I would like to discuss
+the importance of digital literacy.
+</span>
+
+<button
+class="audio-btn"
+onclick="speak('Good morning everyone. Today I would like to discuss the importance of digital literacy.')">
+🔊
+</button>
+
+</div>
+
+
+<div class="sentence">
+
+<span>
+In this presentation, I will explain the main
+advantages and challenges of this technology.
+</span>
+
+<button
+class="audio-btn"
+onclick="speak('In this presentation, I will explain the main advantages and challenges of this technology.')">
+🔊
+</button>
+
+</div>
+
+
+<div class="sentence">
+
+<span>
+Let us begin by examining the first important point.
+</span>
+
+<button
+class="audio-btn"
+onclick="speak('Let us begin by examining the first important point.')">
+🔊
+</button>
+
+</div>
+
+
+<div class="sentence">
+
+<span>
+Thank you for listening. I would be happy to answer
+any questions.
+</span>
+
+<button
+class="audio-btn"
+onclick="speak('Thank you for listening. I would be happy to answer any questions.')">
+🔊
+</button>
+
+</div>
+
+
+</div>
+
+
+<!-- TIPS -->
+
+<div class="practice-card">
+
+<h3>
+✨ Speaking Tips
+</h3>
+
+<p>
+Small improvements can make your communication more professional.
+</p>
+
+
+<div class="tips">
+
+
+<div class="tip">
+
+<div class="tip-icon">
+1
+</div>
+
+<span>
+Speak slowly enough for the listener to understand
+each important point.
+</span>
+
+</div>
+
+
+<div class="tip">
+
+<div class="tip-icon">
+2
+</div>
+
+<span>
+Avoid unnecessary filler words such as
+"umm", "like" and "you know".
+</span>
+
+</div>
+
+
+<div class="tip">
+
+<div class="tip-icon">
+3
+</div>
+
+<span>
+Use short pauses between important ideas instead
+of speaking continuously.
+</span>
+
+</div>
+
+
+<div class="tip">
+
+<div class="tip-icon">
+4
+</div>
+
+<span>
+Maintain confident body language and appropriate
+eye contact during presentations.
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ================= PRESENTATION ================= -->
+
+<section class="section">
+
+<div class="presentation">
+
+<h2>
+📊 Build a Strong Presentation
+</h2>
+
+<p>
+A professional presentation should have a clear structure.
+Follow these four stages.
+</p>
+
+
+<div class="steps">
+
+
+<div class="step">
+
+<div class="step-number">
+1
+</div>
+
+<h4>
+Introduction
+</h4>
+
+<p>
+Introduce yourself and clearly state
+the topic of your presentation.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+2
+</div>
+
+<h4>
+Main Points
+</h4>
+
+<p>
+Present your important ideas in a
+logical and organized sequence.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+3
+</div>
+
+<h4>
+Evidence
+</h4>
+
+<p>
+Support your ideas with examples,
+facts or relevant explanations.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+4
+</div>
+
+<h4>
+Conclusion
+</h4>
+
+<p>
+Summarize the main points and finish
+with a clear final statement.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CONVERSATION ================= -->
+
+<section class="section">
+
+<div class="conversation">
+
+<h3>
+💬 Academic Conversation
+</h3>
+
+<p>
+Example of a professional classroom discussion.
+</p>
+
+
+<div class="chat">
+
+
+<div class="message teacher">
+
+<div class="message-label">
+PROFESSOR
+</div>
+
+What do you think are the major benefits
+of online learning?
+
+</div>
+
+
+<div class="message student">
+
+<div class="message-label">
+STUDENT
+</div>
+
+In my opinion, online learning provides
+greater flexibility and allows students
+to access educational resources from
+different locations.
+
+</div>
+
+
+<div class="message teacher">
+
+<div class="message-label">
+PROFESSOR
+</div>
+
+That is an interesting point. Could you
+give an example?
+
+</div>
+
+
+<div class="message student">
+
+<div class="message-label">
+STUDENT
+</div>
+
+For example, students can attend recorded
+lectures and review difficult concepts
+according to their own learning pace.
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PROFESSIONAL PHRASES ================= -->
+
+<section class="section">
+
+<div class="heading">
+
+<h2>
+Professional Speaking Phrases
+</h2>
+
+<p>
+Use these expressions instead of informal or unclear language.
+</p>
+
+</div>
+
+
+<div class="phrases">
+
+
+<div class="phrase">
+
+<strong>
+"In my opinion..."
+</strong>
+
+<span>
+Useful when expressing your personal viewpoint
+in a discussion.
+</span>
+
+</div>
+
+
+<div class="phrase">
+
+<strong>
+"I would like to point out..."
+</strong>
+
+<span>
+Useful when introducing an important idea.
+</span>
+
+</div>
+
+
+<div class="phrase">
+
+<strong>
+"To clarify..."
+</strong>
+
+<span>
+Useful when explaining something more clearly.
+</span>
+
+</div>
+
+
+<div class="phrase">
+
+<strong>
+"For example..."
+</strong>
+
+<span>
+Useful when providing supporting evidence.
+</span>
+
+</div>
+
+
+<div class="phrase">
+
+<strong>
+"However..."
+</strong>
+
+<span>
+Useful when presenting a contrast or different viewpoint.
+</span>
+
+</div>
+
+
+<div class="phrase">
+
+<strong>
+"To conclude..."
+</strong>
+
+<span>
+Useful when introducing the final part of a presentation.
+</span>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ================= SPEAKING CHALLENGE ================= -->
+
+<section class="section">
+
+<div class="challenge">
+
+<div>
+
+<h3>
+🎤 One-Minute Speaking Challenge
+</h3>
+
+<p>
+Speak for one minute on: <b>"How technology has changed student life."</b>
+</p>
+
+</div>
+
+
+<button
+class="record-btn"
+onclick="startSpeaking()">
+
+🎙 Start Practice
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ================= NEXT ================= -->
+
+<div class="next">
+
+<div>
+
+<h3>
+Level 04 completed? ✨
+</h3>
+
+<p>
+Next: Professional Writing & Academic Communication
+</p>
+
+</div>
+
+
+<a href="/writing" class="next-btn">
+Continue to Level 5 →
+</a>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+
+/* ================= TEXT TO SPEECH ================= */
+
+function speak(text){
+
+    if("speechSynthesis" in window){
+
+        window.speechSynthesis.cancel();
+
+        const voice =
+            new SpeechSynthesisUtterance(text);
+
+        voice.lang="en-US";
+
+        voice.rate=.78;
+
+        voice.pitch=1;
+
+        window.speechSynthesis.speak(voice);
+
+    }
+
+}
+
+
+/* ================= SPEAKING PRACTICE ================= */
+
+function startSpeaking(){
+
+    if(
+        "webkitSpeechRecognition" in window ||
+        "SpeechRecognition" in window
+    ){
+
+        const SpeechRecognition =
+            window.SpeechRecognition ||
+            window.webkitSpeechRecognition;
+
+        const recognition =
+            new SpeechRecognition();
+
+        recognition.lang="en-US";
+
+        recognition.continuous=false;
+
+        recognition.interimResults=false;
+
+        recognition.start();
+
+        alert(
+            "Start speaking now. Say something about how technology has changed student life."
+        );
+
+        recognition.onresult=function(event){
+
+            const text =
+                event.results[0][0].transcript;
+
+            alert(
+                "Your response:\n\n" + text +
+                "\n\nGreat! Keep practising your pronunciation and fluency."
+            );
+
+        };
+
+        recognition.onerror=function(){
+
+            alert(
+                "Microphone practice could not start. You can still practise by speaking aloud."
+            );
+
+        };
+
+    }else{
+
+        alert(
+            "Speech recognition is not supported in this browser. You can still practise using the audio buttons."
+        );
+
+    }
+
+}
+
+</script>
+
+
+</body>
+</html>

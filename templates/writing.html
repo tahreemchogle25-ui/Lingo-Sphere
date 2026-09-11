@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lingo Sphere | Level 5 - Professional Writing</title>
+
+<style>
+
+:root{
+    --lav:#eee5f5;
+    --lav2:#ddd0e6;
+    --plum:#44334d;
+    --plum2:#604b68;
+    --pink:#f5dce6;
+    --pink2:#d79aae;
+    --cream:#fcf9fd;
+    --white:#fff;
+    --text:#3d3343;
+    --muted:#786e7b;
+    --border:#e8deec;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:var(--cream);
+    color:var(--text);
+}
+
+
+/* BACKGROUND */
+
+.bg{
+    position:fixed;
+    z-index:-1;
+    border-radius:50%;
+    pointer-events:none;
+}
+
+.bg1{
+    width:330px;
+    height:330px;
+    top:-150px;
+    right:-100px;
+    background:#eee3f4;
+    animation:float 7s infinite ease-in-out;
+}
+
+.bg2{
+    width:270px;
+    height:270px;
+    bottom:-120px;
+    left:-100px;
+    background:#f7dfe8;
+    animation:float 8s infinite ease-in-out reverse;
+}
+
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(25px);
+    }
+
+}
+
+
+/* CONTAINER */
+
+.container{
+    width:92%;
+    max-width:1250px;
+    margin:auto;
+    padding:25px 0 70px;
+}
+
+
+/* NAV */
+
+.nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.back{
+    text-decoration:none;
+    color:var(--plum2);
+    font-size:14px;
+    font-weight:600;
+}
+
+.back:hover{
+    color:#9a6478;
+}
+
+.badge{
+    background:var(--lav);
+    color:var(--plum);
+    padding:9px 18px;
+    border-radius:30px;
+    font-size:11px;
+    font-weight:700;
+}
+
+
+/* HERO */
+
+.hero{
+    min-height:350px;
+    padding:48px;
+    border-radius:32px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e9ddf1,
+            #f5e0e8
+        );
+
+    border:1px solid #e3d7e8;
+
+    position:relative;
+    overflow:hidden;
+
+    box-shadow:
+        0 18px 40px rgba(65,45,75,.08);
+
+    animation:appear .7s ease;
+}
+
+@keyframes appear{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.hero-content{
+    max-width:760px;
+}
+
+.label{
+    display:inline-block;
+    padding:7px 14px;
+    border-radius:20px;
+    background:rgba(255,255,255,.6);
+    color:#705d77;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.7px;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:44px;
+    line-height:1.12;
+    color:var(--plum);
+    margin-bottom:14px;
+}
+
+.hero h1 span{
+    color:#986175;
+}
+
+.hero p{
+    font-size:15px;
+    line-height:1.8;
+    color:#716574;
+}
+
+.hero-icon{
+    position:absolute;
+    right:80px;
+    top:70px;
+
+    width:150px;
+    height:150px;
+
+    background:rgba(255,255,255,.55);
+    border-radius:42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:70px;
+
+    box-shadow:
+        0 15px 30px rgba(65,45,75,.07);
+
+    animation:iconFloat 4s infinite ease-in-out;
+}
+
+@keyframes iconFloat{
+
+    0%,100%{
+        transform:translateY(0) rotate(-2deg);
+    }
+
+    50%{
+        transform:translateY(-10px) rotate(2deg);
+    }
+
+}
+
+
+/* PROGRESS */
+
+.progress{
+    background:white;
+    margin-top:20px;
+    padding:20px 24px;
+    border-radius:20px;
+    border:1px solid var(--border);
+
+    box-shadow:
+        0 10px 25px rgba(65,45,75,.05);
+}
+
+.progress-top{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.percent{
+    color:#9b6579;
+}
+
+.progress-bar{
+    height:9px;
+    background:#eee9f1;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    width:92%;
+    height:100%;
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #80618d,
+            #d596aa
+        );
+
+    animation:load 1.2s ease;
+}
+
+@keyframes load{
+
+    from{
+        width:0;
+    }
+
+    to{
+        width:92%;
+    }
+
+}
+
+
+/* SECTION */
+
+.section{
+    margin-top:42px;
+}
+
+.heading{
+    margin-bottom:20px;
+}
+
+.heading h2{
+    font-size:28px;
+    color:var(--plum);
+}
+
+.heading p{
+    margin-top:6px;
+    color:var(--muted);
+    font-size:13px;
+}
+
+
+/* SKILLS */
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.skill{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:27px;
+
+    box-shadow:
+        0 10px 25px rgba(65,45,75,.05);
+
+    transition:.3s;
+}
+
+.skill:hover{
+    transform:translateY(-7px);
+    box-shadow:
+        0 18px 35px rgba(65,45,75,.1);
+}
+
+.skill-icon{
+    width:56px;
+    height:56px;
+    border-radius:17px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:var(--lav);
+
+    font-size:27px;
+
+    margin-bottom:16px;
+}
+
+.skill:nth-child(2) .skill-icon{
+    background:var(--pink);
+}
+
+.skill:nth-child(3) .skill-icon{
+    background:#e5deed;
+}
+
+.skill h3{
+    font-size:18px;
+    margin-bottom:8px;
+}
+
+.skill p{
+    font-size:13px;
+    line-height:1.7;
+    color:var(--muted);
+}
+
+
+/* WRITING EDITOR */
+
+.editor{
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:27px;
+
+    padding:30px;
+
+    box-shadow:
+        0 10px 25px rgba(65,45,75,.05);
+}
+
+.editor-head{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+}
+
+.editor-head h3{
+
+    color:var(--plum);
+
+    font-size:21px;
+}
+
+.editor-tag{
+
+    background:var(--pink);
+
+    color:#81566a;
+
+    padding:7px 12px;
+
+    border-radius:15px;
+
+    font-size:10px;
+
+    font-weight:700;
+}
+
+.toolbar{
+
+    display:flex;
+
+    gap:7px;
+
+    flex-wrap:wrap;
+
+    padding-bottom:14px;
+
+    border-bottom:1px solid var(--border);
+
+    margin-bottom:15px;
+}
+
+.tool{
+
+    border:1px solid #e2d8e7;
+
+    background:white;
+
+    color:var(--plum);
+
+    padding:8px 12px;
+
+    border-radius:9px;
+
+    cursor:pointer;
+
+    font-size:11px;
+
+    transition:.25s;
+}
+
+.tool:hover{
+
+    background:var(--lav);
+
+}
+
+textarea{
+
+    width:100%;
+
+    min-height:220px;
+
+    border:1px solid #e4dce8;
+
+    border-radius:17px;
+
+    resize:vertical;
+
+    padding:20px;
+
+    outline:none;
+
+    font-family:"Segoe UI",Arial,sans-serif;
+
+    font-size:14px;
+
+    line-height:1.8;
+
+    color:var(--text);
+
+    background:#fcfafc;
+}
+
+textarea:focus{
+
+    border-color:#b99bc5;
+
+    box-shadow:
+        0 0 0 3px #eee5f5;
+}
+
+.word-count{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:12px;
+
+    color:var(--muted);
+
+    font-size:11px;
+}
+
+.check-btn{
+
+    border:none;
+
+    background:var(--plum);
+
+    color:white;
+
+    padding:11px 17px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.check-btn:hover{
+
+    transform:translateY(-2px);
+
+    background:#5c4663;
+}
+
+
+/* FORMAL EMAIL */
+
+.email{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:20px;
+}
+
+.email-card{
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:24px;
+
+    padding:28px;
+
+    box-shadow:
+        0 10px 25px rgba(65,45,75,.05);
+}
+
+.email-card h3{
+
+    color:var(--plum);
+
+    font-size:20px;
+
+    margin-bottom:8px;
+}
+
+.email-card > p{
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    line-height:1.7;
+
+    margin-bottom:18px;
+}
+
+.email-example{
+
+    background:#faf7fc;
+
+    padding:20px;
+
+    border-radius:16px;
+
+    font-size:12px;
+
+    line-height:1.8;
+
+    color:#5e5561;
+}
+
+.email-example strong{
+
+    color:var(--plum);
+}
+
+
+/* WRITING RULES */
+
+.rules{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:13px;
+}
+
+.rule{
+
+    padding:17px;
+
+    background:#faf7fc;
+
+    border-radius:15px;
+
+    font-size:12px;
+
+    line-height:1.6;
+
+    display:flex;
+
+    gap:10px;
+}
+
+.rule-icon{
+
+    width:30px;
+
+    height:30px;
+
+    border-radius:9px;
+
+    background:var(--lav);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-shrink:0;
+}
+
+
+/* PARAPHRASING */
+
+.paraphrase{
+
+    background:
+        linear-gradient(
+            135deg,
+            #46374f,
+            #5c4761
+        );
+
+    color:white;
+
+    padding:32px;
+
+    border-radius:27px;
+
+    box-shadow:
+        0 18px 35px rgba(60,45,65,.12);
+}
+
+.paraphrase h2{
+
+    font-size:25px;
+
+    margin-bottom:7px;
+}
+
+.paraphrase > p{
+
+    color:#ddd4e1;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+    margin-bottom:22px;
+}
+
+.original{
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    border-radius:16px;
+
+    padding:20px;
+
+    margin-bottom:12px;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+.original span{
+
+    display:block;
+
+    color:#cbbfd0;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    margin-bottom:7px;
+}
+
+.paraphrased{
+
+    background:white;
+
+    color:var(--text);
+
+    border-radius:16px;
+
+    padding:20px;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+.paraphrased span{
+
+    display:block;
+
+    color:#9b6579;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    margin-bottom:7px;
+}
+
+
+/* FINAL CHALLENGE */
+
+.final{
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:26px;
+
+    padding:30px;
+
+    box-shadow:
+        0 10px 25px rgba(65,45,75,.05);
+}
+
+.final h2{
+
+    color:var(--plum);
+
+    font-size:25px;
+
+    margin-bottom:7px;
+}
+
+.final-intro{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.7;
+
+    margin-bottom:22px;
+}
+
+.task{
+
+    background:#faf7fc;
+
+    padding:22px;
+
+    border-radius:18px;
+
+    margin-bottom:12px;
+
+    border-left:4px solid #c28ca0;
+}
+
+.task strong{
+
+    color:var(--plum);
+
+    font-size:13px;
+}
+
+.task p{
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    line-height:1.7;
+
+    margin-top:7px;
+}
+
+
+/* COMPLETE */
+
+.complete{
+
+    margin-top:30px;
+
+    padding:30px;
+
+    border-radius:24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f5dfe7,
+            #e9def1
+        );
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+}
+
+.complete h3{
+
+    color:var(--plum);
+
+    font-size:21px;
+}
+
+.complete p{
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    margin-top:6px;
+}
+
+.finish-btn{
+
+    border:none;
+
+    background:var(--plum);
+
+    color:white;
+
+    padding:14px 22px;
+
+    border-radius:11px;
+
+    cursor:pointer;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.finish-btn:hover{
+
+    transform:translateY(-3px);
+
+    background:#5b4562;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .skills{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .email{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:700px){
+
+    .hero{
+        padding:32px;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .hero-icon{
+        display:none;
+    }
+
+    .skills,
+    .rules{
+        grid-template-columns:1fr;
+    }
+
+    .complete{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="bg bg1"></div>
+<div class="bg bg2"></div>
+
+
+<div class="container">
+
+
+<!-- NAV -->
+
+<div class="nav">
+
+<a href="/course" class="back">
+← Back to Learning Path
+</a>
+
+<div class="badge">
+LEVEL 05 • ADVANCED
+</div>
+
+</div>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="label">
+LINGO SPHERE • UNDERGRADUATE ENGLISH
+</div>
+
+<h1>
+
+Professional Writing
+
+<br>
+
+<span>
+& Academic Communication
+</span>
+
+</h1>
+
+<p>
+
+Develop formal writing skills required for
+college assignments, academic reports,
+professional emails, summaries, applications
+and workplace communication.
+
+</p>
+
+</div>
+
+
+<div class="hero-icon">
+✍️
+</div>
+
+</section>
+
+
+<!-- PROGRESS -->
+
+<div class="progress">
+
+<div class="progress-top">
+
+<span>
+Level 05 Progress
+</span>
+
+<span class="percent">
+92%
+</span>
+
+</div>
+
+<div class="progress-bar">
+
+<div class="progress-fill"></div>
+
+</div>
+
+</div>
+
+
+<!-- SKILLS -->
+
+<section class="section">
+
+<div class="heading">
+
+<h2>
+Academic Writing Skills
+</h2>
+
+<p>
+Build the writing abilities needed for university and professional communication.
+</p>
+
+</div>
+
+
+<div class="skills">
+
+
+<div class="skill">
+
+<div class="skill-icon">
+📝
+</div>
+
+<h3>
+Formal Writing
+</h3>
+
+<p>
+Use professional vocabulary, clear sentences
+and an appropriate academic tone.
+</p>
+
+</div>
+
+
+<div class="skill">
+
+<div class="skill-icon">
+📚
+</div>
+
+<h3>
+Academic Structure
+</h3>
+
+<p>
+Organize ideas using introductions,
+supporting paragraphs and conclusions.
+</p>
+
+</div>
+
+
+<div class="skill">
+
+<div class="skill-icon">
+💼
+</div>
+
+<h3>
+Professional Communication
+</h3>
+
+<p>
+Write formal emails, applications,
+reports and professional messages.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- WRITING PRACTICE -->
+
+<section class="section">
+
+<div class="heading">
+
+<h2>
+✍️ Academic Writing Practice
+</h2>
+
+<p>
+Write a short response using formal English.
+</p>
+
+</div>
+
+
+<div class="editor">
+
+<div class="editor-head">
+
+<h3>
+Practice Editor
+</h3>
+
+<div class="editor-tag">
+FORMAL WRITING
+</div>
+
+</div>
+
+
+<div class="toolbar">
+
+<button class="tool"
+onclick="insertText('In my opinion, ')">
+In my opinion
+</button>
+
+<button class="tool"
+onclick="insertText('Furthermore, ')">
+Furthermore
+</button>
+
+<button class="tool"
+onclick="insertText('However, ')">
+However
+</button>
+
+<button class="tool"
+onclick="insertText('For example, ')">
+For example
+</button>
+
+<button class="tool"
+onclick="insertText('Therefore, ')">
+Therefore
+</button>
+
+</div>
+
+
+<textarea
+id="writingBox"
+oninput="countWords()"
+placeholder="Write 100–150 words on:
+
+'How can technology improve the learning experience of college students?'">
+</textarea>
+
+
+<div class="word-count">
+
+<span id="count">
+0 words
+</span>
+
+<button
+class="check-btn"
+onclick="checkWriting()">
+
+Check Response
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FORMAL EMAIL -->
+
+<section class="section">
+
+<div class="heading">
+
+<h2>
+📧 Formal Email Writing
+</h2>
+
+<p>
+Learn the structure of a professional academic email.
+</p>
+
+</div>
+
+
+<div class="email">
+
+
+<div class="email-card">
+
+<h3>
+Correct Structure
+</h3>
+
+<p>
+A formal email should be clear, polite and properly structured.
+</p>
+
+
+<div class="rules">
+
+
+<div class="rule">
+
+<div class="rule-icon">
+1
+</div>
+
+<span>
+Use a clear and meaningful subject line.
+</span>
+
+</div>
+
+
+<div class="rule">
+
+<div class="rule-icon">
+2
+</div>
+
+<span>
+Begin with an appropriate greeting.
+</span>
+
+</div>
+
+
+<div class="rule">
+
+<div class="rule-icon">
+3
+</div>
+
+<span>
+State the purpose clearly in the first paragraph.
+</span>
+
+</div>
+
+
+<div class="rule">
+
+<div class="rule-icon">
+4
+</div>
+
+<span>
+End with a polite closing statement.
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<div class="email-card">
+
+<h3>
+Example Email
+</h3>
+
+<p>
+Example of writing to a college professor.
+</p>
+
+
+<div class="email-example">
+
+<strong>
+Subject: Request for Assignment Submission Extension
+</strong>
+
+<br><br>
+
+Dear Professor,
+
+<br><br>
+
+I am writing to request a short extension
+for submitting the assignment. Due to an
+unexpected academic commitment, I require
+additional time to complete the work properly.
+
+<br><br>
+
+I would be grateful if you could allow me
+to submit the assignment by the revised date.
+
+<br><br>
+
+Thank you for your understanding.
+
+<br><br>
+
+Sincerely,<br>
+Tahreem
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- PARAPHRASING -->
+
+<section class="section">
+
+<div class="paraphrase">
+
+<h2>
+🔄 Paraphrasing Practice
+</h2>
+
+<p>
+Paraphrasing means expressing the same idea
+using different words and sentence structures
+without changing the original meaning.
+</p>
+
+
+<div class="original">
+
+<span>
+ORIGINAL
+</span>
+
+Technology provides students with access
+to educational resources from almost anywhere.
+
+</div>
+
+
+<div class="paraphrased">
+
+<span>
+PARAPHRASED
+</span>
+
+Digital technology allows learners to obtain
+educational materials regardless of their location.
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FINAL CHALLENGE -->
+
+<section class="section">
+
+<div class="final">
+
+<h2>
+🎯 Final Communication Challenge
+</h2>
+
+<p class="final-intro">
+
+Complete these tasks to demonstrate the communication
+skills developed throughout Lingo Sphere.
+
+</p>
+
+
+<div class="task">
+
+<strong>
+Task 1 — Academic Writing
+</strong>
+
+<p>
+Write 100–150 words explaining how artificial
+intelligence can affect higher education.
+</p>
+
+</div>
+
+
+<div class="task">
+
+<strong>
+Task 2 — Formal Email
+</strong>
+
+<p>
+Write a formal email to your professor requesting
+permission to submit an assignment late.
+</p>
+
+</div>
+
+
+<div class="task">
+
+<strong>
+Task 3 — Summary
+</strong>
+
+<p>
+Read a short academic article and summarize its
+main argument in approximately 80 words.
+</p>
+
+</div>
+
+
+<div class="task">
+
+<strong>
+Task 4 — Presentation
+</strong>
+
+<p>
+Prepare a two-minute presentation on
+"The Future of Digital Learning."
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- COMPLETE -->
+
+<div class="complete">
+
+<div>
+
+<h3>
+🎓 Congratulations!
+</h3>
+
+<p>
+You have reached the final level of the Lingo Sphere
+English learning pathway.
+</p>
+
+</div>
+
+
+<button
+class="finish-btn"
+onclick="finishCourse()">
+
+Complete Course ✨
+
+</button>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+
+/* INSERT PHRASE */
+
+function insertText(text){
+
+    const box =
+        document.getElementById("writingBox");
+
+    const start =
+        box.selectionStart;
+
+    const end =
+        box.selectionEnd;
+
+    box.value =
+        box.value.substring(0,start)
+        +
+        text
+        +
+        box.value.substring(end);
+
+    box.focus();
+
+    countWords();
+
+}
+
+
+/* WORD COUNT */
+
+function countWords(){
+
+    const box =
+        document.getElementById("writingBox");
+
+    const text =
+        box.value.trim();
+
+    if(text===""){
+
+        document.getElementById("count")
+        .innerText="0 words";
+
+        return;
+
+    }
+
+    const words =
+        text.split(/\s+/).length;
+
+    document.getElementById("count")
+    .innerText =
+        words + " words";
+
+}
+
+
+/* CHECK WRITING */
+
+function checkWriting(){
+
+    const box =
+        document.getElementById("writingBox");
+
+    const text =
+        box.value.trim();
+
+    if(text===""){
+
+        alert(
+            "Please write your response first."
+        );
+
+        return;
+
+    }
+
+    const words =
+        text.split(/\s+/).length;
+
+    if(words < 50){
+
+        alert(
+            "Good start! Try to develop your answer further. Aim for approximately 100–150 words."
+        );
+
+    }
+
+    else if(words < 100){
+
+        alert(
+            "Your response is developing well. Add more supporting ideas and examples to reach the recommended length."
+        );
+
+    }
+
+    else{
+
+        alert(
+            "Excellent! Your response has a suitable length. Now check your grammar, vocabulary, structure and punctuation."
+        );
+
+    }
+
+}
+
+
+/* COMPLETE COURSE */
+
+function finishCourse(){
+
+    alert(
+        "🎓 Congratulations!\n\nYou have completed all 5 levels of Lingo Sphere.\n\nYour final learning areas include:\n• Vocabulary & Grammar\n• Critical Reading\n• Professional Speaking\n• Academic Writing\n\nCourse completed successfully!"
+    );
+
+}
+
+</script>
+
+
+</body>
+</html>

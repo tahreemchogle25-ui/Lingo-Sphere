@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lingo Sphere | Assessment Result</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family: "Segoe UI", Arial, sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(225, 185, 211, 0.38),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 90%,
+                    rgba(205, 191, 230, 0.38),
+                    transparent 32%
+                ),
+                #faf7fc;
+
+            color: #403047;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 25px;
+        }
+
+        /* ================= CARD ================= */
+
+        .result-card {
+            width: 100%;
+
+            max-width: 720px;
+
+            background: rgba(255,255,255,0.97);
+
+            border: 1px solid #e5d8e8;
+
+            border-radius: 28px;
+
+            padding: 45px 40px;
+
+            text-align: center;
+
+            box-shadow:
+                0 25px 70px rgba(67,48,76,0.13);
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .result-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 230px;
+            height: 230px;
+
+            border-radius: 50%;
+
+            background: #e6c3d6;
+
+            opacity: 0.18;
+
+            top: -120px;
+            left: -110px;
+        }
+
+        .result-card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 200px;
+            height: 200px;
+
+            border-radius: 50%;
+
+            background: #cfc0e4;
+
+            opacity: 0.18;
+
+            bottom: -110px;
+            right: -90px;
+        }
+
+        .content {
+            position: relative;
+
+            z-index: 2;
+        }
+
+        /* ================= LOGO ================= */
+
+        .logo {
+            font-size: 23px;
+
+            font-weight: 800;
+
+            color: #43304c;
+
+            margin-bottom: 25px;
+        }
+
+        .logo span {
+            color: #c99943;
+        }
+
+        /* ================= STATUS ================= */
+
+        .status-icon {
+            width: 82px;
+            height: 82px;
+
+            margin: 0 auto 18px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 38px;
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .passed {
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff0bf,
+                    #e7bf68
+                );
+
+            color: #654719;
+
+            border: 3px solid #c99943;
+        }
+
+        .failed {
+            background: #f6e6ed;
+
+            color: #80536f;
+
+            border: 3px solid #d8a8bc;
+        }
+
+        /* ================= TITLE ================= */
+
+        h1 {
+            font-family: Georgia, serif;
+
+            font-size: 36px;
+
+            color: #403047;
+
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #817383;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+            margin-bottom: 28px;
+        }
+
+        /* ================= SCORE ================= */
+
+        .score-circle {
+            width: 165px;
+            height: 165px;
+
+            margin: 0 auto 28px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    #ffffff 55%,
+                    #f9f0f8 56%,
+                    #ead7eb 100%
+                );
+
+            border: 7px solid #c99943;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            box-shadow:
+                0 12px 35px rgba(201,153,67,0.18);
+        }
+
+        .percentage {
+            font-size: 39px;
+
+            font-weight: 900;
+
+            color: #65496c;
+        }
+
+        .score {
+            margin-top: 3px;
+
+            font-size: 12px;
+
+            color: #8b7c8e;
+
+            font-weight: 700;
+        }
+
+        /* ================= DETAILS ================= */
+
+        .details {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 12px;
+
+            margin-bottom: 30px;
+        }
+
+        .detail-box {
+            padding: 15px 10px;
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #fffafd,
+                    #f7eff8
+                );
+
+            border: 1px solid #e6d9e8;
+        }
+
+        .detail-box strong {
+            display: block;
+
+            font-size: 19px;
+
+            color: #604566;
+
+            margin-bottom: 4px;
+        }
+
+        .detail-box span {
+            font-size: 9px;
+
+            color: #8b7c8e;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.8px;
+        }
+
+        /* ================= MESSAGE ================= */
+
+        .message {
+            padding: 16px 20px;
+
+            border-radius: 14px;
+
+            margin-bottom: 25px;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+        .success-message {
+            background: #fff7df;
+
+            border: 1px solid #e6cc8b;
+
+            color: #6b5427;
+        }
+
+        .fail-message {
+            background: #f9edf2;
+
+            border: 1px solid #dfbdcb;
+
+            color: #70495b;
+        }
+
+        /* ================= BUTTONS ================= */
+
+        .buttons {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+
+            text-decoration: none;
+
+            border: none;
+
+            cursor: pointer;
+
+            padding: 13px 23px;
+
+            border-radius: 12px;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            transition: 0.3s;
+        }
+
+        .primary {
+            background:
+                linear-gradient(
+                    135deg,
+                    #46334f,
+                    #705674
+                );
+
+            color: white;
+
+            box-shadow:
+                0 7px 20px rgba(70,51,79,0.18);
+        }
+
+        .primary:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 11px 25px rgba(70,51,79,0.25);
+        }
+
+        .gold {
+            background:
+                linear-gradient(
+                    135deg,
+                    #c99943,
+                    #e7c978
+                );
+
+            color: #44321d;
+
+            box-shadow:
+                0 7px 20px rgba(201,153,67,0.18);
+        }
+
+        .gold:hover {
+            transform: translateY(-3px);
+        }
+
+        .secondary {
+            background: #f1e9f3;
+
+            color: #62476a;
+        }
+
+        .secondary:hover {
+            background: #e7d9ea;
+
+            transform: translateY(-2px);
+        }
+
+        /* ================= FOOTER ================= */
+
+        .footer {
+            margin-top: 25px;
+
+            font-size: 10px;
+
+            color: #a091a3;
+
+            letter-spacing: 0.5px;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media(max-width:600px) {
+
+            .result-card {
+                padding: 35px 20px;
+            }
+
+            h1 {
+                font-size: 29px;
+            }
+
+            .details {
+                grid-template-columns: 1fr;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="result-card">
+
+    <div class="content">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+            Lingo <span>Sphere</span>
+        </div>
+
+
+        {% if certificate_unlocked %}
+
+
+            <!-- ================= PASSED ================= -->
+
+            <div class="status-icon passed">
+                ✓
+            </div>
+
+
+            <h1>
+                Congratulations! 🎉
+            </h1>
+
+
+            <p class="subtitle">
+
+                You have successfully completed the
+                Lingo Sphere Final Assessment.
+
+            </p>
+
+
+            <!-- SCORE -->
+
+            <div class="score-circle">
+
+                <div class="percentage">
+                    {{ "%.0f"|format(percentage) }}%
+                </div>
+
+                <div class="score">
+                    {{ score }} / {{ total }} Correct
+                </div>
+
+            </div>
+
+
+            <!-- DETAILS -->
+
+            <div class="details">
+
+                <div class="detail-box">
+
+                    <strong>
+                        {{ score }}/{{ total }}
+                    </strong>
+
+                    <span>
+                        Score
+                    </span>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <strong>
+                        {{ "%.0f"|format(percentage) }}%
+                    </strong>
+
+                    <span>
+                        Percentage
+                    </span>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <strong>
+                        PASSED
+                    </strong>
+
+                    <span>
+                        Result
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- SUCCESS MESSAGE -->
+
+            <div class="message success-message">
+
+                ✦ Excellent work!
+
+                You have demonstrated the required
+                level of English competency.
+
+                Your <strong>Certificate of Completion</strong>
+                is now unlocked.
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="buttons">
+
+
+                <a
+                    href="/certificate"
+                    class="btn primary">
+
+                    🎓 View Certificate
+
+                </a>
+
+
+                <a
+                    href="/download_certificate"
+                    class="btn gold">
+
+                    ⬇ Download Certificate
+
+                </a>
+
+
+                <a
+                    href="/dashboard"
+                    class="btn secondary">
+
+                    ← Dashboard
+
+                </a>
+
+
+            </div>
+
+
+        {% else %}
+
+
+            <!-- ================= NOT PASSED ================= -->
+
+            <div class="status-icon failed">
+                !
+            </div>
+
+
+            <h1>
+                Keep Learning! 🌸
+            </h1>
+
+
+            <p class="subtitle">
+
+                You completed the assessment,
+                but you need at least <strong>60%</strong>
+                to unlock your certificate.
+
+            </p>
+
+
+            <!-- SCORE -->
+
+            <div class="score-circle">
+
+                <div class="percentage">
+                    {{ "%.0f"|format(percentage) }}%
+                </div>
+
+                <div class="score">
+                    {{ score }} / {{ total }} Correct
+                </div>
+
+            </div>
+
+
+            <!-- DETAILS -->
+
+            <div class="details">
+
+                <div class="detail-box">
+
+                    <strong>
+                        {{ score }}/{{ total }}
+                    </strong>
+
+                    <span>
+                        Score
+                    </span>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <strong>
+                        {{ "%.0f"|format(percentage) }}%
+                    </strong>
+
+                    <span>
+                        Percentage
+                    </span>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <strong>
+                        60%
+                    </strong>
+
+                    <span>
+                        Required
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- FAIL MESSAGE -->
+
+            <div class="message fail-message">
+
+                Your certificate is currently locked.
+
+                Review the five learning modules and
+                strengthen your skills before attempting
+                the final assessment again.
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="buttons">
+
+
+                <a
+                    href="/course"
+                    class="btn primary">
+
+                    📚 Continue Learning
+
+                </a>
+
+
+                <a
+                    href="/quiz"
+                    class="btn gold">
+
+                    🔄 Try Assessment Again
+
+                </a>
+
+
+                <a
+                    href="/dashboard"
+                    class="btn secondary">
+
+                    ← Dashboard
+
+                </a>
+
+
+            </div>
+
+
+        {% endif %}
+
+
+        <div class="footer">
+
+            Lingo Sphere • Advanced English Learning Programme
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+</body>
+
+</html>

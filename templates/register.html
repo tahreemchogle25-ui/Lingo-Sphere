@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | Lingo Sphere</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Poppins", sans-serif;
+
+            background: linear-gradient(
+                135deg,
+                #f7f8fd,
+                #eef5fb,
+                #f4f0fb
+            );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 25px;
+            overflow: hidden;
+
+            color: #625786;
+        }
+
+        /* ================= BACKGROUND SHAPES ================= */
+
+        .shape {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .shape-one {
+            width: 350px;
+            height: 350px;
+
+            background: #c9c3e8;
+            opacity: .45;
+
+            top: -160px;
+            right: -100px;
+        }
+
+        .shape-two {
+            width: 330px;
+            height: 330px;
+
+            background: #a9d8ea;
+            opacity: .45;
+
+            bottom: -150px;
+            left: -110px;
+        }
+
+        .shape-three {
+            width: 95px;
+            height: 95px;
+
+            background: #f3c6d3;
+            opacity: .55;
+
+            left: 12%;
+            top: 10%;
+        }
+
+        .shape-four {
+            width: 75px;
+            height: 75px;
+
+            background: #d8e5f5;
+            opacity: .75;
+
+            right: 12%;
+            bottom: 12%;
+        }
+
+        /* ================= MAIN BOX ================= */
+
+        .register-box {
+            width: 100%;
+            max-width: 1000px;
+            min-height: 620px;
+
+            display: grid;
+            grid-template-columns: 42% 58%;
+
+            background: white;
+
+            border-radius: 30px;
+            overflow: hidden;
+
+            position: relative;
+            z-index: 2;
+
+            box-shadow:
+                0 28px 70px rgba(98, 87, 134, .15);
+
+            animation: pageEnter .7s ease;
+        }
+
+        /* ================= LEFT SIDE ================= */
+
+        .visual-side {
+
+            position: relative;
+            overflow: hidden;
+
+            padding: 45px;
+
+            color: white;
+
+            background: linear-gradient(
+                145deg,
+                #9b8cc4,
+                #a99bd0,
+                #9fcde0
+            );
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .visual-side::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 330px;
+            height: 330px;
+
+            border-radius: 50%;
+
+            background: #f3c6d3;
+
+            opacity: .25;
+
+            right: -160px;
+            bottom: -120px;
+        }
+
+        .visual-side::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 230px;
+            height: 230px;
+
+            border-radius: 50%;
+
+            background: #d8e5f5;
+
+            opacity: .22;
+
+            left: -110px;
+            top: 100px;
+        }
+
+        /* ================= LOGO ================= */
+
+        .logo {
+
+            position: relative;
+            z-index: 3;
+
+            font-size: 24px;
+            font-weight: 800;
+
+            letter-spacing: .2px;
+        }
+
+        .logo span {
+            color: #f9e8ef;
+        }
+
+        /* ================= LEFT CONTENT ================= */
+
+        .visual-content {
+
+            position: relative;
+            z-index: 3;
+        }
+
+        .visual-icon {
+
+            width: 72px;
+            height: 72px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 22px;
+
+            background: rgba(255,255,255,.18);
+
+            border: 1px solid rgba(255,255,255,.25);
+
+            font-size: 32px;
+
+            margin-bottom: 25px;
+
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        .visual-content h1 {
+
+            font-size: 36px;
+            line-height: 1.18;
+
+            margin-bottom: 16px;
+
+            letter-spacing: -.6px;
+        }
+
+        .visual-content h1 span {
+            color: #f8e8ef;
+        }
+
+        .visual-content p {
+
+            max-width: 350px;
+
+            font-size: 12px;
+
+            line-height: 1.9;
+
+            color: #f3f7fb;
+        }
+
+        /* ================= STATS ================= */
+
+        .stats {
+
+            display: flex;
+            gap: 10px;
+
+            margin-top: 26px;
+        }
+
+        .stat {
+
+            padding: 11px 14px;
+
+            min-width: 85px;
+
+            border-radius: 13px;
+
+            background: rgba(255,255,255,.14);
+
+            border: 1px solid rgba(255,255,255,.18);
+
+            font-size: 9px;
+
+            backdrop-filter: blur(5px);
+        }
+
+        .stat strong {
+
+            display: block;
+
+            font-size: 15px;
+
+            margin-bottom: 2px;
+        }
+
+        /* ================= RIGHT SIDE ================= */
+
+        .form-side {
+
+            background: #ffffff;
+
+            padding: 45px 65px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* ================= HEADING ================= */
+
+        .heading {
+            margin-bottom: 25px;
+        }
+
+        .heading h2 {
+
+            color: #625786;
+
+            font-size: 27px;
+        }
+
+        .heading p {
+
+            color: #9995a8;
+
+            font-size: 11px;
+
+            margin-top: 5px;
+        }
+
+        /* ================= FORM ================= */
+
+        .form-row {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 15px;
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        .input-group label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #696080;
+
+            font-size: 10px;
+
+            font-weight: 700;
+        }
+
+        .input-wrap {
+            position: relative;
+        }
+
+        .input-wrap span {
+
+            position: absolute;
+
+            left: 14px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            font-size: 14px;
+
+            z-index: 2;
+        }
+
+        .input-wrap input {
+
+            width: 100%;
+
+            padding: 13px 13px 13px 40px;
+
+            border: 1px solid #e5e5ef;
+
+            border-radius: 11px;
+
+            background: #fbfcff;
+
+            outline: none;
+
+            font-family: inherit;
+
+            font-size: 11px;
+
+            color: #625786;
+
+            transition: .3s ease;
+        }
+
+        .input-wrap input::placeholder {
+            color: #aaa7b4;
+        }
+
+        .input-wrap input:focus {
+
+            background: white;
+
+            border-color: #9b8cc4;
+
+            box-shadow:
+                0 0 0 4px rgba(155,140,196,.11);
+
+            transform: translateY(-1px);
+        }
+
+        /* ================= TERMS ================= */
+
+        .terms {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 7px;
+
+            margin: 4px 0 20px;
+
+            color: #9692a0;
+
+            font-size: 9px;
+
+            line-height: 1.6;
+        }
+
+        .terms input {
+
+            margin-top: 2px;
+
+            accent-color: #9b8cc4;
+        }
+
+        .terms a {
+
+            color: #8272a8;
+
+            text-decoration: none;
+
+            font-weight: 700;
+        }
+
+        .terms a:hover {
+            color: #729fba;
+        }
+
+        /* ================= REGISTER BUTTON ================= */
+
+        .register-btn {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background: linear-gradient(
+                90deg,
+                #9b8cc4,
+                #8fc5dc
+            );
+
+            color: white;
+
+            font-family: inherit;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 23px rgba(123,111,166,.24);
+
+            transition: .35s ease;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .register-btn::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 0;
+            height: 100%;
+
+            left: 0;
+            top: 0;
+
+            background: linear-gradient(
+                90deg,
+                #8fc5dc,
+                #b8add8,
+                #f3c6d3
+            );
+
+            transition: .4s ease;
+        }
+
+        .register-btn span {
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+        .register-btn:hover::before {
+            width: 100%;
+        }
+
+        .register-btn:hover {
+
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 15px 30px rgba(123,111,166,.30);
+        }
+
+        .register-btn:active {
+            transform: scale(.98);
+        }
+
+        /* ================= LOGIN LINK ================= */
+
+        .login-link {
+
+            text-align: center;
+
+            margin-top: 20px;
+
+            color: #9994a3;
+
+            font-size: 10px;
+        }
+
+        .login-link a {
+
+            color: #8272a8;
+
+            text-decoration: none;
+
+            font-weight: 800;
+
+            transition: .3s;
+        }
+
+        .login-link a:hover {
+            color: #6fa7c3;
+        }
+
+        /* ================= HOME ================= */
+
+        .home {
+
+            text-align: center;
+
+            margin-top: 12px;
+        }
+
+        .home a {
+
+            color: #aaa6b2;
+
+            text-decoration: none;
+
+            font-size: 9px;
+
+            transition: .3s;
+        }
+
+        .home a:hover {
+            color: #8272a8;
+        }
+
+        /* ================= ANIMATIONS ================= */
+
+        @keyframes pageEnter {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(25px)
+                    scale(.97);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+        @keyframes floating {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 800px) {
+
+            body {
+                overflow: auto;
+            }
+
+            .register-box {
+
+                grid-template-columns: 1fr;
+
+                max-width: 500px;
+            }
+
+            .visual-side {
+
+                min-height: 350px;
+
+                padding: 35px;
+            }
+
+            .visual-content h1 {
+                font-size: 30px;
+            }
+
+            .form-side {
+                padding: 40px 35px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .visual-side {
+                padding: 30px;
+            }
+
+            .form-side {
+                padding: 35px 25px;
+            }
+
+            .visual-content h1 {
+                font-size: 27px;
+            }
+
+            .stats {
+                display: none;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- Background -->
+
+    <div class="shape shape-one"></div>
+    <div class="shape shape-two"></div>
+    <div class="shape shape-three"></div>
+    <div class="shape shape-four"></div>
+
+
+    <!-- ================= MAIN REGISTER BOX ================= -->
+
+    <div class="register-box">
+
+
+        <!-- ================= LEFT PANEL ================= -->
+
+        <section class="visual-side">
+
+            <div class="logo">
+                Lingo <span>Sphere</span>
+            </div>
+
+
+            <div class="visual-content">
+
+                <div class="visual-icon">
+                    🚀
+                </div>
+
+
+                <h1>
+                    Start Your<br>
+                    <span>English Journey!</span>
+                </h1>
+
+
+                <p>
+                    Create your Lingo Sphere account and
+                    unlock a fun and interactive way to learn
+                    English, improve your skills and build
+                    confidence.
+                </p>
+
+
+                <div class="stats">
+
+                    <div class="stat">
+                        <strong>10</strong>
+                        Learning Levels
+                    </div>
+
+
+                    <div class="stat">
+                        <strong>🎮</strong>
+                        Fun Activities
+                    </div>
+
+
+                    <div class="stat">
+                        <strong>🏆</strong>
+                        Certificate
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= RIGHT PANEL ================= -->
+
+        <section class="form-side">
+
+
+            <div class="heading">
+
+                <h2>
+                    Create Your Account
+                </h2>
+
+                <p>
+                    Join Lingo Sphere and start learning today.
+                </p>
+
+            </div>
+
+
+            <form method="POST" action="/register">
+
+
+                <!-- NAME + USERNAME -->
+
+                <div class="form-row">
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Full Name
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <span>👤</span>
+
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="Your full name"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Username
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <span>✨</span>
+
+                            <input
+                                type="text"
+                                name="username"
+                                placeholder="Choose username"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="input-group">
+
+                    <label>
+                        Email Address
+                    </label>
+
+                    <div class="input-wrap">
+
+                        <span>✉️</span>
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-row">
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Password
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <span>🔒</span>
+
+                            <input
+                                type="password"
+                                name="password"
+                                placeholder="Create password"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Confirm Password
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <span>🔐</span>
+
+                            <input
+                                type="password"
+                                name="confirm_password"
+                                placeholder="Confirm password"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TERMS -->
+
+                <label class="terms">
+
+                    <input
+                        type="checkbox"
+                        required
+                    >
+
+                    <span>
+
+                        I agree to the
+                        <a href="#">
+                            Terms & Conditions
+                        </a>
+
+                        and understand that my account
+                        will be used for my Lingo Sphere
+                        learning journey.
+
+                    </span>
+
+                </label>
+
+
+                <!-- BUTTON -->
+
+                <button
+                    type="submit"
+                    class="register-btn"
+                >
+
+                    <span>
+                        Create My Account&nbsp; →
+                    </span>
+
+                </button>
+
+
+            </form>
+
+
+            <!-- LOGIN -->
+
+            <div class="login-link">
+
+                Already have an account?
+
+                <a href="/login">
+                    Sign In
+                </a>
+
+            </div>
+
+
+            <!-- HOME -->
+
+            <div class="home">
+
+                <a href="/">
+                    ← Back to Home
+                </a>
+
+            </div>
+
+
+        </section>
+
+    </div>
+
+</body>
+
+</html>
